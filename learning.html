@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduConnect – Learning Paths</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="style.css" rel="stylesheet" />
+  
+</head>
+<body>
+  <header class="navbar">
+    <h2 class="logo">EduConnect</h2>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="mainNav">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#" class="active">Learning Paths</a></li>
+        <li><a href="project.html">Projects</a></li>
+        <li><a href="groups.html">Groups</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- Left Menu -->
+    <aside class="card menu">
+      <h3>Menu</h3>
+      <a href="index.html" class="menu-item"><span class="menu-icon">⊞</span><span>Dashboard</span></a>
+      <a href="#" class="menu-item active"><span class="menu-icon">📚</span><span>My Courses</span></a>
+      <a href="project.html" class="menu-item"><span class="menu-icon">🗂</span><span>My Projects</span></a>
+      <a href="groups.html" class="menu-item"><span class="menu-icon">👥</span><span>My Groups</span></a>
+      <a href="#" class="menu-item"><span class="menu-icon">🏆</span><span>Achievements</span></a>
+      <a href="profile.html" class="menu-item"><span class="menu-icon">⚙️</span><span>Settings</span></a>
+      <div class="menu-divider"></div>
+      <div class="menu-progress">
+        <p class="progress-label">Weekly Goal</p>
+        <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width: 68%"></div></div>
+        <p class="progress-pct">68% complete</p>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- Page Header -->
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Learning Paths</h1>
+          <p class="page-sub">Explore structured paths to build real-world skills</p>
+        </div>
+        <div class="filter-tabs">
+          <button class="tab active">All</button>
+          <button class="tab">Enrolled</button>
+          <button class="tab">Completed</button>
+          <button class="tab">Saved</button>
+        </div>
+      </div>
+
+      <!-- Search -->
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input class="search-input" type="text" placeholder="Search learning paths, skills, or topics…" />
+      </div>
+
+      <!-- Active Path -->
+      <div class="active-path-banner">
+        <p class="apb-label">Currently Active</p>
+        <h2 class="apb-title">Python for Data Analysis</h2>
+        <div class="apb-meta">
+          <span>Week 3 of 8</span>
+          <span>Next: Data Cleaning with Pandas</span>
+          <span>~2 hrs left this week</span>
+        </div>
+        <div class="apb-progress-wrap"><div class="apb-progress-fill" style="width: 37%"></div></div>
+        <div class="apb-bottom">
+          <span class="apb-pct">37% complete · 5 of 13 modules done</span>
+          <button class="apb-btn">Continue Learning →</button>
+        </div>
+      </div>
+
+      <!-- My Enrolled Paths -->
+      <section class="section">
+        <div class="section-header">
+          <h3 class="section-title">My Enrolled Paths</h3>
+          <a href="#" class="see-all">See all →</a>
+        </div>
+        <div class="paths-grid">
+
+          <div class="path-card">
+            <div class="path-card-top">
+              <div class="path-icon" style="background:#dbeafe;">🐍</div>
+              <span class="path-enroll-badge badge-enrolled">Enrolled</span>
+            </div>
+            <p class="path-card-name">Python for Data Analysis</p>
+            <p class="path-card-desc">Master pandas, NumPy, and data visualisation through hands-on projects.</p>
+            <div class="path-card-progress-wrap"><div class="path-card-progress-fill" style="width:37%"></div></div>
+            <div class="path-card-footer">
+              <span>37% complete</span>
+              <span class="duration">⏱ 8 weeks</span>
+            </div>
+          </div>
+
+          <div class="path-card">
+            <div class="path-card-top">
+              <div class="path-icon" style="background:#fce7f3;">🎨</div>
+              <span class="path-enroll-badge badge-enrolled">Enrolled</span>
+            </div>
+            <p class="path-card-name">UI/UX Design Fundamentals</p>
+            <p class="path-card-desc">Learn Figma, user research, wireframing, and design systems from scratch.</p>
+            <div class="path-card-progress-wrap"><div class="path-card-progress-fill" style="width:12%"></div></div>
+            <div class="path-card-footer">
+              <span>12% complete</span>
+              <span class="duration">⏱ 6 weeks</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Explore Paths -->
+      <section class="section">
+        <div class="section-header">
+          <h3 class="section-title">Explore More Paths</h3>
+          <a href="#" class="see-all">Browse all →</a>
+        </div>
+        <div class="paths-grid">
+
+          <div class="path-card">
+            <div class="path-card-top">
+              <div class="path-icon" style="background:#dcfce7;">🤖</div>
+              <span class="path-enroll-badge badge-popular">🔥 Popular</span>
+            </div>
+            <p class="path-card-name">Machine Learning Basics</p>
+            <p class="path-card-desc">Sci-kit Learn, model evaluation, regression and classification projects.</p>
+            <div class="path-card-footer" style="margin-top:6px;">
+              <span>⭐ 4.8 · 1.2k learners</span>
+              <span class="duration">⏱ 10 weeks</span>
+            </div>
+          </div>
+
+          <div class="path-card">
+            <div class="path-card-top">
+              <div class="path-icon" style="background:#fef3c7;">✍️</div>
+              <span class="path-enroll-badge badge-available">New</span>
+            </div>
+            <p class="path-card-name">Business Writing</p>
+            <p class="path-card-desc">Craft compelling proposals, pitch decks, and professional communications.</p>
+            <div class="path-card-footer" style="margin-top:6px;">
+              <span>⭐ 4.6 · 840 learners</span>
+              <span class="duration">⏱ 4 weeks</span>
+            </div>
+          </div>
+
+          <div class="path-card">
+            <div class="path-card-top">
+              <div class="path-icon" style="background:#e9d5ff;">🌐</div>
+              <span class="path-enroll-badge badge-available">Available</span>
+            </div>
+            <p class="path-card-name">Web Development</p>
+            <p class="path-card-desc">HTML, CSS, JavaScript, and React — build real products step by step.</p>
+            <div class="path-card-footer" style="margin-top:6px;">
+              <span>⭐ 4.9 · 3.1k learners</span>
+              <span class="duration">⏱ 12 weeks</span>
+            </div>
+          </div>
+
+          <div class="path-card">
+            <div class="path-card-top">
+              <div class="path-icon" style="background:#fecaca;">📊</div>
+              <span class="path-enroll-badge badge-popular">Rising ↑</span>
+            </div>
+            <p class="path-card-name">Financial Literacy</p>
+            <p class="path-card-desc">Budgeting, investing, and understanding financial statements for professionals.</p>
+            <div class="path-card-footer" style="margin-top:6px;">
+              <span>⭐ 4.7 · 620 learners</span>
+              <span class="duration">⏱ 5 weeks</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Right Panel -->
+    <aside class="card trending">
+      <h3>Your Progress</h3>
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="stat-box-num">2</div>
+          <div class="stat-box-lbl">Active Paths</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box-num">12</div>
+          <div class="stat-box-lbl">Modules Done</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box-num">1</div>
+          <div class="stat-box-lbl">Completed Paths</div>
+        </div>
+      </div>
+
+      <div class="menu-divider" style="margin: 18px 0;"></div>
+      <h3 style="margin-bottom: 14px;">Certificates</h3>
+
+      <div class="cert-item">
+        <div class="cert-icon" style="background:#dcfce7; font-size:18px;">🏅</div>
+        <div>
+          <p class="cert-name">Intro to Python</p>
+          <p class="cert-status" style="color: var(--green);">✓ Earned · March 2025</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon" style="background:#fef3c7; font-size:18px;">🎯</div>
+        <div>
+          <p class="cert-name">Data Analysis</p>
+          <p class="cert-status">In progress · 37%</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon" style="background:#e9d5ff; font-size:18px;">🔒</div>
+        <div>
+          <p class="cert-name">Machine Learning</p>
+          <p class="cert-status">Not started</p>
+        </div>
+      </div>
+
+      <div class="menu-divider" style="margin: 18px 0;"></div>
+      <h3 style="margin-bottom: 12px;">Skills You're Building</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">NumPy</span>
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Data Viz</span>
+        <span class="skill-tag">Research</span>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    const btn = document.getElementById('hamburgerBtn');
+    const nav = document.getElementById('mainNav');
+    btn.addEventListener('click', () => { nav.classList.toggle('open'); btn.classList.toggle('active'); });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => { nav.classList.remove('open'); btn.classList.remove('active'); });
+    });
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => { document.querySelectorAll('.tab').forEach(t => t.classList.remove('active')); tab.classList.add('active'); });
+    });
+  </script>
+</body>
+</html>

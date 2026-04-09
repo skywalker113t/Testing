@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduConnect – Learning Paths</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="navbar">
+      <h2 class="logo">EduConnect</h2>
+      <button
+        class="hamburger"
+        id="hamburgerBtn"
+        aria-label="Toggle navigation"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="mainNav">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="learning.html"">Learning Paths</a></li>
+          <li><a href="#"class="active">Projects</a></li>
+          <li><a href="groups.html">Groups</a></li>
+          <li><a href="profile.html">Profile</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container">
+      <!-- Left Menu -->
+      <aside class="card menu">
+      <h3>Menu</h3>
+      <a href="index.html" class="menu-item"><span class="menu-icon">⊞</span><span>Dashboard</span></a>
+      <a href="learning.html" class="menu-item"><span class="menu-icon">📚</span><span>My Courses</span></a>
+      <a href="#" class="menu-item active"><span class="menu-icon">🗂</span><span>My Projects</span></a>
+      <a href="groups.html" class="menu-item"><span class="menu-icon">👥</span><span>My Groups</span></a>
+      <a href="#" class="menu-item"><span class="menu-icon">🏆</span><span>Achievements</span></a>
+      <a href="profile.html" class="menu-item"><span class="menu-icon">⚙️</span><span>Settings</span></a>
+      <div class="menu-divider"></div>
+      <div class="menu-progress">
+        <p class="progress-label">Weekly Goal</p>
+        <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width: 68%"></div></div>
+        <p class="progress-pct">68% complete</p>
+      </div>
+    </aside>
+
+      <!-- Main Content -->
+      <main class="main-content"></main>
+    </div>
+  </body>
+</html>
