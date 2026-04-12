@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <link href="style.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
   </head>
   <body>
     <header class="navbar">
@@ -25,10 +25,8 @@
       <nav id="mainNav">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="learning.html">Learning Paths</a></li>
-          <li><a href="project.html">Projects</a></li>
-          <li><a href="#" class="active">Groups</a></li>
           <li><a href="profile.html">Profile</a></li>
+          <li><a href="settings.html">Settings</a></li>
         </ul>
       </nav>
     </header>
@@ -37,23 +35,20 @@
       <!-- Left Menu -->
       <aside class="card menu">
         <h3>Menu</h3>
-        <a href="index.html" class="menu-item"
+        <a href="index.html" class="menu-item Dashboard active"
           ><span class="menu-icon">⊞</span><span>Dashboard</span></a
         >
         <a href="learning.html" class="menu-item"
           ><span class="menu-icon">📚</span><span>My Courses</span></a
         >
-        <a href="project.html" class="menu-item"
+        <a href="project.html" class="menu-item project active"
           ><span class="menu-icon">🗂</span><span>My Projects</span></a
         >
-        <a href="#" class="menu-item"
+        <a href="#" class="menu-item groups active"
           ><span class="menu-icon">👥</span><span>My Groups</span></a
         >
-        <a href="#" class="menu-item"
+        <a href="#" class="menu-item achievement active"
           ><span class="menu-icon">🏆</span><span>Achievements</span></a
-        >
-        <a href="profile.html" class="menu-item"
-          ><span class="menu-icon">⚙️</span><span>Settings</span></a
         >
         <div class="menu-divider"></div>
         <div class="menu-progress">
@@ -73,7 +68,7 @@
             <h1 class="page-title">Groups</h1>
             <p class="page-sub">Stay accountable and grow with your peers</p>
           </div>
-          <button class="btn-primary">+ Create Group</button>
+          <button class="btn-primary groups">+ Create Group</button>
         </div>
 
         <!-- Filter tabs -->

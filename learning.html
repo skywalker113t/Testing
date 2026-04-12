@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link href="style.css" rel="stylesheet" />
+  <link href="/css/style.css" rel="stylesheet" />
   
 </head>
 <body>
@@ -19,10 +19,8 @@
     <nav id="mainNav">
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="#" class="active">Learning Paths</a></li>
-        <li><a href="project.html">Projects</a></li>
-        <li><a href="groups.html">Groups</a></li>
         <li><a href="profile.html">Profile</a></li>
+        <li><a href="settings.html">Settings</a></li>
       </ul>
     </nav>
   </header>
@@ -31,12 +29,27 @@
     <!-- Left Menu -->
     <aside class="card menu">
       <h3>Menu</h3>
-      <a href="index.html" class="menu-item"><span class="menu-icon">⊞</span><span>Dashboard</span></a>
-      <a href="#" class="menu-item active"><span class="menu-icon">📚</span><span>My Courses</span></a>
-      <a href="project.html" class="menu-item"><span class="menu-icon">🗂</span><span>My Projects</span></a>
-      <a href="groups.html" class="menu-item"><span class="menu-icon">👥</span><span>My Groups</span></a>
-      <a href="#" class="menu-item"><span class="menu-icon">🏆</span><span>Achievements</span></a>
-      <a href="profile.html" class="menu-item"><span class="menu-icon">⚙️</span><span>Settings</span></a>
+
+      <a href="index.html" class="menu-item Dashboard active">
+        <span class="menu-icon dashboard">⊞</span>
+        <span>Dashboard</span></a>
+
+      <a href="#" class="menu-item learning active">
+        <span class="menu-icon learning">📚</span>
+        <span>My Courses</span></a>
+
+      <a href="project.html" class="menu-item project active">
+        <span class="menu-icon project">🗂</span>
+        <span>My Projects</span></a>
+
+      <a href="groups.html" class="menu-item ">
+        <span class="menu-icon groups">👥</span>
+        <span>My Groups</span></a>
+
+      <a href="#" class="menu-item achievement active">
+        <span class="menu-icon Achievements">🏆</span>
+        <span>Achievements</span></a>
+
       <div class="menu-divider"></div>
       <div class="menu-progress">
         <p class="progress-label">Weekly Goal</p>
@@ -55,10 +68,10 @@
           <p class="page-sub">Explore structured paths to build real-world skills</p>
         </div>
         <div class="filter-tabs">
-          <button class="tab active">All</button>
-          <button class="tab">Enrolled</button>
-          <button class="tab">Completed</button>
-          <button class="tab">Saved</button>
+          <button class="tab active learning">All</button>
+          <button class="tab learning">Enrolled</button>
+          <button class="tab learning">Completed</button>
+          <button class="tab learning">Saved</button>
         </div>
       </div>
 

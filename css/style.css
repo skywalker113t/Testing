@@ -20,6 +20,7 @@
   --blue-dark: #1d4ed8;
   --green: #16a34a;
   --green-light: #dcfce7;
+  --purple: rgb(130, 43, 189);
   --text-dark: #111827;
   --text-mid: #374151;
   --text-muted: #6b7280;
@@ -238,11 +239,22 @@ a {
   color: var(--blue);
 }
 
-.menu-item.active {
+.menu-item.dashboard.active{
   background: var(--blue);
   color: #fff;
 }
-
+.menu-item.learning.active{
+  background: var(--purple);
+  color: #fff;
+}
+.menu-item.groups.active{
+  background: var(--green);
+  color: #fff;
+}
+.menu-item{
+  background: transparent;
+  color: var(--text-mid);
+}
 .menu-icon {
   font-size: 16px;
   width: 20px;
@@ -352,19 +364,31 @@ a {
   font-family: var(--font-body);
   transition: background 0.2s;
 }
+.btn-primary.groups {
+  background: var(--green);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: background 0.2s;
+}
 
 .btn-primary:hover {
   background: var(--blue-dark);
 }
 
 .btn-outline {
-  background: var(--bg-card);
-  color: var(--text-mid);
+  background: var(--blue-light);
+  color: var(--text-dark);
   padding: 8px 18px;
   border-radius: var(--radius-sm);
   font-size: 13px;
   font-weight: 600;
-  border: 1.5px solid var(--border);
+  border: 1.7px solid var(--text-dark);
   cursor: pointer;
   font-family: var(--font-body);
   transition:
@@ -417,6 +441,17 @@ a {
   cursor: pointer;
   transition: all 0.2s;
 }
+.tab.learning {
+  padding: 7px 16px;
+  border-radius: 99px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
 
 .tab:hover {
   border-color: var(--blue);
@@ -424,11 +459,15 @@ a {
 }
 
 .tab.active {
-  background: var(--blue);
-  border-color: var(--blue);
+  background: var(--green);
+  border-color: var(--green-light);
   color: #fff;
 }
-
+.tab.active.learning {
+  background: var(--purple);
+  border-color: var(--purple-light);
+  color: #fff;
+}
 /* ── Search Bar ─────────────────────────────────────────────── */
 .search-wrap {
   position: relative;
@@ -864,7 +903,7 @@ a {
 
 /* Active path banner */
 .active-path-banner {
-  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 60%, #3b82f6 100%);
+  background: linear-gradient(135deg, #741dd8 0%, #9e1eda 60%, #cd61ee 100%);
   border-radius: var(--radius-lg);
   padding: 24px;
   color: #fff;
@@ -1030,7 +1069,7 @@ a {
 .path-card-progress-fill {
   height: 100%;
   border-radius: 99px;
-  background: linear-gradient(90deg, var(--blue), #60a5fa);
+  background: linear-gradient(90deg, var(--blue), #9d3adf);
 }
 
 .path-card-footer {
@@ -1214,7 +1253,7 @@ a {
 
 /* Active group card */
 .my-group-card {
-  background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 60%, #3b82f6 100%);
+  background: linear-gradient(135deg, #096e30 0%, #29b664 60%, #48d16a 100%);
   border-radius: var(--radius-lg);
   padding: 24px;
   color: #fff;
@@ -1420,7 +1459,7 @@ a {
 }
 
 .compose-btn {
-  background: var(--blue);
+  background: var(--green);
   color: #fff;
   padding: 9px 16px;
   border-radius: var(--radius-sm);
@@ -1632,8 +1671,12 @@ a {
 
 .profile-cover {
   height: 110px;
-  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 60%, #60a5fa 100%);
+  background: linear-gradient(135deg, #000 0%, #414040 60%, #646262 100%);
   position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding-left: 19px;
+
 }
 
 .profile-cover-edit {
@@ -1657,33 +1700,32 @@ a {
 }
 
 .profile-body {
-  padding: 0 24px 24px;
+  padding: 0 24px 26px;
 }
 
 .profile-avatar-row {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-top: -32px;
-  margin-bottom: 14px;
-  flex-wrap: wrap;
-  gap: 12px;
+  
+  /* Pull the entire row up into the banner space */
+  margin-top: -50px; 
+  position: relative;
+  z-index: 10;
+  
+  padding: 0; /* Clear any padding that might be shrinking it */
 }
 
 .profile-avatar {
   width: 72px;
   height: 72px;
+  /* Ensure the background of the avatar is solid so it pops against the black */
+  background: var(--text-dark);
+  border: 2px solid var(--bg-card);
   border-radius: 50%;
-  background: var(--blue-light);
-  color: var(--blue-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-head);
-  font-size: 1.6rem;
-  font-weight: 700;
-  border: 4px solid var(--bg-card);
-  flex-shrink: 0;
+  
+  /* This prevents the flexbox from squishing the circle */
+  flex-shrink: 0; 
 }
 
 .profile-actions {
