@@ -21,6 +21,8 @@
   --green: #16a34a;
   --green-light: #dcfce7;
   --purple: rgb(130, 43, 189);
+  --orange:rgb(219, 114, 27);
+  --red: rgb(192, 55, 37);
   --text-dark: #111827;
   --text-mid: #374151;
   --text-muted: #6b7280;
@@ -247,8 +249,16 @@ a {
   background: var(--purple);
   color: #fff;
 }
+.menu-item.project.active{
+  background: var(--orange);
+  color: #fff;
+}
 .menu-item.groups.active{
   background: var(--green);
+  color: #fff;
+}
+.menu-item.achiievements.active{
+  background: var(--red);
   color: #fff;
 }
 .menu-item{
@@ -1105,7 +1115,7 @@ a {
   font-family: var(--font-head);
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--blue);
+  color: var(--purple);
 }
 
 .stat-box-lbl {
