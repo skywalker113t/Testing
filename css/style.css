@@ -45,6 +45,7 @@ html {
 
 body {
   background: var(--bg-page);
+  background-color: #c2bfbf;
   font-family: var(--font-body);
   color: var(--text-dark);
   font-size: 15px;
@@ -1239,17 +1240,6 @@ a {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 /* ─────────────────────────────────────────────────────────────
    GROUPS (groups.html)
 ───────────────────────────────────────────────────────────── */
@@ -1656,13 +1646,6 @@ a {
 .rules-list li:last-child {
   border-bottom: none;
 }
-
-
-
-
-
-
-
 
 
 /* ─────────────────────────────────────────────────────────────
