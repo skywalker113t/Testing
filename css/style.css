@@ -2175,24 +2175,44 @@ a {
 
 /* NAVBAR */
 .navbar {
-  background: white;
-  padding: 15px 30px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;         /* Vertically centers everything */
+  justify-content: space-between; /* Pushes logo left, links right */
+  padding: 0 24px;
+  height: 60px;
+  background-color: white;
+  width: 100%;
+  box-sizing: border-box;      /* Prevents padding from adding to width */
 }
 
-.navbar h2 {
-  color: #2563eb;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
+/* Ensure your nav links container is also flex */
+.nav-links {
+  display: flex;
+  gap: 20px;                   /* Adds space between your links */
+  font-weight: bold;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-icon {
+  height: 30px;       /* Matches your text size exactly */
+  width: auto;        /* Maintains the original proportions */
+  display: block;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 /* BODY */
-body {
+.login.body {
   background: #3f77af;
 }
-
 /* MAIN CONTAINER */
-.container {
+.login.container {
   width: 900px;
   height: 450px;
   margin: 80px auto;
