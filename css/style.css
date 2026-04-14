@@ -257,7 +257,7 @@ a {
   background: var(--green);
   color: #fff;
 }
-.menu-item.achiievements.active{
+.menu-item.achievements.active{
   background: var(--red);
   color: #fff;
 }
