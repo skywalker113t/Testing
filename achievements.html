@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EduConnect – Dashboard</title>
+    <title>EduConnect – Achievements</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -26,7 +26,7 @@
           <img src="/images/E.png" alt="EduConnect" class="nav-icon">
         </a>
 
-        <nav class="nav-links">
+        <nav id="mainNav" class="nav-links">
           <a href="#">Home</a>
           <a href="profile.html">Profile</a>
           <a href="settings.html">Settings</a>
@@ -79,108 +79,162 @@
       <!-- ── CENTRE CONTENT ────────────────────────────────── -->
       <main class="main-content">
 
-        <!-- Welcome banner -->
-        <div class="welcome-banner">
-          <div class="welcome-text">
-            <p class="welcome-sub">Good morning 👋</p>
-            <h2 class="welcome-name">Welcome back, Alex</h2>
-            <p class="welcome-desc">You're on a <strong>5-day streak</strong>. Keep it going!</p>
+        <!-- Page Header -->
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Achievements</h1>
+            <p class="page-sub">Celebrate your wins, track badges earned, and see your next milestones.</p>
           </div>
-          <div class="welcome-stats">
-            <div class="stat-chip">
-              <span class="stat-num">12</span>
-              <span class="stat-lbl">Lessons Done</span>
-            </div>
-            <div class="stat-chip">
-              <span class="stat-num">3</span>
-              <span class="stat-lbl">Projects Active</span>
-            </div>
-            <div class="stat-chip">
-              <span class="stat-num">8</span>
-              <span class="stat-lbl">Group Members</span>
-            </div>
-          </div>
+          <button class="btn-primary">Share progress</button>
         </div>
 
-        <!-- Current learning path -->
+        <!-- Achievement Summary -->
+        <div class="achievement-summary-banner">
+          <p class="apb-label">Achievement Summary</p>
+          <h2 class="apb-title">Your progress so far</h2>
+          <div class="apb-meta">
+            <span>8 badges earned</span>
+            <span>3 certificates completed</span>
+          </div>
+        </div>
         <section class="section">
           <div class="section-header">
-            <h3 class="section-title">Current Learning Path</h3>
-            <a href="#" class="see-all">See all →</a>
+            <h3 class="section-title">Achievement Summary</h3>
+            <a href="#" class="see-all">View certificate list →</a>
           </div>
-          <div class="path-card">
-            <div class="path-top">
-              <div class="path-badge">Python</div>
-              <span class="path-week">Week 3 of 8</span>
+          <div class="milestones-grid">
+            <div class="path-card">
+              <div class="path-top">
+                <div class="path-badge">Badges</div>
+                <span class="path-week">8 earned</span>
+              </div>
+              <h4 class="path-name">Badge collection</h4>
+              <p class="path-desc">You’ve unlocked skill and streak badges across Python, teamwork, and review work.</p>
+              <div class="path-progress-wrap">
+                <div class="path-progress-fill" style="width: 80%"></div>
+              </div>
+              <div class="path-meta">
+                <span>80% of milestones</span>
+                <span>Next: earn the Top Learner badge</span>
+              </div>
             </div>
-            <h4 class="path-name">Python for Data Analysis</h4>
-            <p class="path-desc">Master pandas, NumPy, and data visualisation through hands-on projects.</p>
-            <div class="path-progress-wrap">
-              <div class="path-progress-fill" style="width: 37%"></div>
+            <div class="path-card">
+              <div class="path-top">
+                <div class="path-badge">Streak</div>
+                <span class="path-week">5 days</span>
+              </div>
+              <h4 class="path-name">Learning streak</h4>
+              <p class="path-desc">Keep your momentum going by completing lessons and staying active in your cohort.</p>
+              <div class="path-progress-wrap">
+                <div class="path-progress-fill" style="width: 100%"></div>
+              </div>
+              <div class="path-meta">
+                <span>Daily activity</span>
+                <span>Next goal: 7-day streak</span>
+              </div>
             </div>
-            <div class="path-meta">
-              <span>37% complete</span>
-              <span>Next: Data Cleaning with Pandas →</span>
+            <div class="path-card">
+              <div class="path-top">
+                <div class="path-badge">Certificates</div>
+                <span class="path-week">3 completed</span>
+              </div>
+              <h4 class="path-name">Course certificates</h4>
+              <p class="path-desc">Your completed certificates show progress in core learning paths and applied project work.</p>
+              <div class="path-progress-wrap">
+                <div class="path-progress-fill" style="width: 60%"></div>
+              </div>
+              <div class="path-meta">
+                <span>3 of 5</span>
+                <span>Next: complete UI/UX module</span>
+              </div>
             </div>
           </div>
         </section>
 
-        <!-- Weekly milestones -->
+        <!-- Badges Grid -->
         <section class="section">
           <div class="section-header">
-            <h3 class="section-title">This Week's Milestones</h3>
-            <span class="badge-count">2 / 4 done</span>
+            <h3 class="section-title">Badges Earned</h3>
+            <a href="#" class="see-all">Explore more badges →</a>
+          </div>
+          <div class="badges-grid">
+            <div class="badge-item">
+              <div class="badge-emoji">🔥</div>
+              <p class="badge-name">Streak Starter</p>
+              <p class="badge-sub">5-day activity streak</p>
+            </div>
+            <div class="badge-item">
+              <div class="badge-emoji">🐍</div>
+              <p class="badge-name">Python Basics</p>
+              <p class="badge-sub">Completed the Python path</p>
+            </div>
+            <div class="badge-item">
+              <div class="badge-emoji">🤝</div>
+              <p class="badge-name">Team Player</p>
+              <p class="badge-sub">Joined a cohort group</p>
+            </div>
+            <div class="badge-item">
+              <div class="badge-emoji">📦</div>
+              <p class="badge-name">First Project</p>
+              <p class="badge-sub">Submitted your first draft</p>
+            </div>
+            <div class="badge-item locked">
+              <div class="badge-emoji">🏆</div>
+              <p class="badge-name">Top Learner</p>
+              <p class="badge-sub">Locked</p>
+            </div>
+            <div class="badge-item locked">
+              <div class="badge-emoji">✍️</div>
+              <p class="badge-name">Peer Reviewer</p>
+              <p class="badge-sub">Locked</p>
+            </div>
+            <div class="badge-item locked">
+              <div class="badge-emoji">🎓</div>
+              <p class="badge-name">Graduated</p>
+              <p class="badge-sub">Locked</p>
+            </div>
+            <div class="badge-item locked">
+              <div class="badge-emoji">💡</div>
+              <p class="badge-name">Innovator</p>
+              <p class="badge-sub">Locked</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Next Steps -->
+        <section class="section">
+          <div class="section-header">
+            <h3 class="section-title">Next Milestones</h3>
+            <span class="badge-count">3 / 5 complete</span>
           </div>
           <div class="milestones-grid">
             <div class="milestone done">
               <div class="ms-check">✓</div>
               <div>
-                <p class="ms-title">Watch lesson videos</p>
-                <p class="ms-sub">Completed Monday</p>
+                <p class="ms-title">Earn the Peer Reviewer badge</p>
+                <p class="ms-sub">Complete two reviews by Sunday</p>
               </div>
             </div>
             <div class="milestone done">
               <div class="ms-check">✓</div>
               <div>
-                <p class="ms-title">Join group discussion</p>
-                <p class="ms-sub">Completed Tuesday</p>
+                <p class="ms-title">Submit final project</p>
+                <p class="ms-sub">Due Friday 11:59 PM</p>
               </div>
             </div>
             <div class="milestone">
               <div class="ms-check pending">○</div>
               <div>
-                <p class="ms-title">Submit project draft</p>
-                <p class="ms-sub">Due Friday</p>
+                <p class="ms-title">Gain the Top Learner badge</p>
+                <p class="ms-sub">Finish two more courses</p>
               </div>
             </div>
             <div class="milestone">
               <div class="ms-check pending">○</div>
               <div>
-                <p class="ms-title">Peer review (2 projects)</p>
-                <p class="ms-sub">Due Sunday</p>
+                <p class="ms-title">Complete UI/UX Fundamentals</p>
+                <p class="ms-sub">Unlock the next certificate</p>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Accountability group -->
-        <section class="section">
-          <div class="section-header">
-            <h3 class="section-title">Accountability Group</h3>
-            <a href="#" class="see-all">View group →</a>
-          </div>
-          <div class="group-card">
-            <div class="group-info">
-              <p class="group-name">🐍 Python Cohort #4</p>
-              <p class="group-checkin">Next check-in: <strong>Friday 6 PM</strong></p>
-            </div>
-            <div class="members-row">
-              <div class="member-avatar" style="background:#bfdbfe; color:#1d4ed8;" title="You">A</div>
-              <div class="member-avatar" style="background:#bbf7d0; color:#15803d;" title="Chioma">C</div>
-              <div class="member-avatar" style="background:#fde68a; color:#92400e;" title="David">D</div>
-              <div class="member-avatar" style="background:#fecaca; color:#991b1b;" title="Fatima">F</div>
-              <div class="member-avatar" style="background:#e9d5ff; color:#6b21a8;" title="Kwame">K</div>
-              <div class="member-more">+3</div>
             </div>
           </div>
         </section>

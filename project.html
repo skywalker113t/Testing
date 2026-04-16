@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EduConnect – Dashboard</title>
+    <title>EduConnect – Projects</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -26,7 +26,7 @@
           <img src="/images/E.png" alt="EduConnect" class="nav-icon">
         </a>
 
-        <nav class="nav-links">
+        <nav id="mainNav" class="nav-links">
           <a href="#">Home</a>
           <a href="profile.html">Profile</a>
           <a href="settings.html">Settings</a>
@@ -78,71 +78,112 @@
       <!-- ── CENTRE CONTENT ────────────────────────────────── -->
       <main class="main-content">
 
-        <!-- Welcome banner -->
-        <div class="welcome-banner">
-          <div class="welcome-text">
-            <p class="welcome-sub">Good morning 👋</p>
-            <h2 class="welcome-name">Welcome back, Alex</h2>
-            <p class="welcome-desc">You're on a <strong>5-day streak</strong>. Keep it going!</p>
+        <!-- Page Header -->
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">My Projects</h1>
+            <p class="page-sub">Welcome back, <strong>Alex Okonkwo</strong>. Track your active work, upcoming deadlines, and peer review tasks.</p>
           </div>
-          <div class="welcome-stats">
-            <div class="stat-chip">
-              <span class="stat-num">12</span>
-              <span class="stat-lbl">Lessons Done</span>
-            </div>
-            <div class="stat-chip">
-              <span class="stat-num">3</span>
-              <span class="stat-lbl">Projects Active</span>
-            </div>
-            <div class="stat-chip">
-              <span class="stat-num">8</span>
-              <span class="stat-lbl">Group Members</span>
-            </div>
-          </div>
+          <button class="btn-primary">+ New Project</button>
         </div>
 
-        <!-- Current learning path -->
+        <!-- Project Filters -->
+        <div class="filter-tabs">
+          <button class="tab active">Active</button>
+          <button class="tab">Drafts</button>
+          <button class="tab">Review</button>
+        </div>
+
+        <!-- Search -->
+        <div class="search-wrap">
+          <span class="search-icon">🔎</span>
+          <input type="text" class="search-input" placeholder="Search projects..." />
+        </div>
+
+        <!-- Active Projects -->
+        <div class="active-project-banner">
+          <p class="apb-label">Active Projects</p>
+          <h2 class="apb-title">Work in progress</h2>
+          <div class="apb-meta">
+            <span>3 active projects</span>
+            <span>Keep your deadlines on track</span>
+          </div>
+        </div>
         <section class="section">
           <div class="section-header">
-            <h3 class="section-title">Current Learning Path</h3>
-            <a href="#" class="see-all">See all →</a>
+            <h3 class="section-title">Active Projects</h3>
+            <a href="#" class="see-all">View all →</a>
           </div>
-          <div class="path-card">
-            <div class="path-top">
-              <div class="path-badge">Python</div>
-              <span class="path-week">Week 3 of 8</span>
+          <div class="milestones-grid">
+            <div class="path-card">
+              <div class="path-top">
+                <div class="path-badge">In Progress</div>
+                <span class="path-week">Due Fri 11:59 PM</span>
+              </div>
+              <h4 class="path-name">Sales Data Dashboard</h4>
+              <p class="path-desc">Build an interactive analytics dashboard using Python, pandas, and data visualisation tools.</p>
+              <div class="path-progress-wrap">
+                <div class="path-progress-fill" style="width: 62%"></div>
+              </div>
+              <div class="path-meta">
+                <span>62% complete</span>
+                <span>Next: Finalise charts and export filters</span>
+              </div>
             </div>
-            <h4 class="path-name">Python for Data Analysis</h4>
-            <p class="path-desc">Master pandas, NumPy, and data visualisation through hands-on projects.</p>
-            <div class="path-progress-wrap">
-              <div class="path-progress-fill" style="width: 37%"></div>
+
+            <div class="path-card">
+              <div class="path-top">
+                <div class="path-badge">Review</div>
+                <span class="path-week">Peer review due Sun</span>
+              </div>
+              <h4 class="path-name">Customer Segmentation Model</h4>
+              <p class="path-desc">Train clustering models and summarise customer segments for the cohort review.</p>
+              <div class="path-progress-wrap">
+                <div class="path-progress-fill" style="width: 45%"></div>
+              </div>
+              <div class="path-meta">
+                <span>45% complete</span>
+                <span>Next: Update model summary and charts</span>
+              </div>
             </div>
-            <div class="path-meta">
-              <span>37% complete</span>
-              <span>Next: Data Cleaning with Pandas →</span>
+
+            <div class="path-card">
+              <div class="path-top">
+                <div class="path-badge">Planning</div>
+                <span class="path-week">Workshop Sat 2:00 PM</span>
+              </div>
+              <h4 class="path-name">Visualisation Prototype</h4>
+              <p class="path-desc">Design the concept and wireframes for a data storytelling dashboard.</p>
+              <div class="path-progress-wrap">
+                <div class="path-progress-fill" style="width: 18%"></div>
+              </div>
+              <div class="path-meta">
+                <span>18% complete</span>
+                <span>Next: Sketch the homepage layout</span>
+              </div>
             </div>
           </div>
         </section>
 
-        <!-- Weekly milestones -->
+        <!-- Project Milestones -->
         <section class="section">
           <div class="section-header">
-            <h3 class="section-title">This Week's Milestones</h3>
+            <h3 class="section-title">Project Milestones</h3>
             <span class="badge-count">2 / 4 done</span>
           </div>
           <div class="milestones-grid">
             <div class="milestone done">
               <div class="ms-check">✓</div>
               <div>
-                <p class="ms-title">Watch lesson videos</p>
-                <p class="ms-sub">Completed Monday</p>
+                <p class="ms-title">Draft project outline</p>
+                <p class="ms-sub">Completed Wednesday</p>
               </div>
             </div>
             <div class="milestone done">
               <div class="ms-check">✓</div>
               <div>
-                <p class="ms-title">Join group discussion</p>
-                <p class="ms-sub">Completed Tuesday</p>
+                <p class="ms-title">Gather dataset</p>
+                <p class="ms-sub">Completed Thursday</p>
               </div>
             </div>
             <div class="milestone">
@@ -162,11 +203,11 @@
           </div>
         </section>
 
-        <!-- Accountability group -->
+        <!-- Project Team -->
         <section class="section">
           <div class="section-header">
-            <h3 class="section-title">Accountability Group</h3>
-            <a href="#" class="see-all">View group →</a>
+            <h3 class="section-title">Project Team</h3>
+            <a href="#" class="see-all">Manage team →</a>
           </div>
           <div class="group-card">
             <div class="group-info">
