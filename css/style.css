@@ -2313,7 +2313,7 @@ a {
   display: flex;
   align-items: center;         /* Vertically centers everything */
   justify-content: space-between; /* Pushes logo left, links right */
-  padding: 0 24px;
+  padding: 0 8px;
   height: 60px;
   background-color: white;
   width: 100%;
@@ -2323,7 +2323,7 @@ a {
 /* Ensure your nav links container is also flex */
 .nav-links {
   display: flex;
-  gap: 20px;                   /* Adds space between your links */
+  gap: 8px;                   /* Adds space between your links */
   font-weight: bold;
   list-style: none;
   margin: 0;
@@ -2345,6 +2345,9 @@ a {
   display: flex;
   align-items: center;
   text-decoration: none;
+  height: 20px;       /* Matches your text size exactly */
+  width: auto;        /* Maintains the original proportions */
+  display: block;
 }
 
 /* BODY */
