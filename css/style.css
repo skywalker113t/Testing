@@ -262,6 +262,10 @@ a {
   background: var(--red);
   color: #fff;
 }
+.menu-item.settings.active{
+  background: var(--blue);
+  color: #fff;
+}
 .menu-item{
   background: transparent;
   color: var(--text-mid);
