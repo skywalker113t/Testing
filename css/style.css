@@ -387,6 +387,30 @@ a {
   font-family: var(--font-body);
   transition: background 0.2s;
 }
+.btn-primary.project {
+  background: var(--orange);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: background 0.2s;
+}
+.btn-primary.achievements {
+  background: var(--red);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: background 0.2s;
+}
 
 .btn-primary:hover {
   background: var(--blue-dark);
@@ -463,13 +487,35 @@ a {
   cursor: pointer;
   transition: all 0.2s;
 }
+.tab.groups {
+  padding: 7px 16px;
+  border-radius: 99px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.tab.project {
+  padding: 7px 16px;
+  border-radius: 99px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1.8px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
 
 .tab:hover {
-  border-color: var(--blue);
+  border-color: var(--text-dark);
   color: var(--blue);
 }
 
-.tab.active {
+.tab.active.groups {
   background: var(--green);
   border-color: var(--green-light);
   color: #fff;
@@ -479,6 +525,12 @@ a {
   border-color: var(--purple-light);
   color: #fff;
 }
+.tab.active.project {
+  background: var(--orange);
+  border-color: var(--bg-card);
+  color: #fff;
+}
+
 /* ── Search Bar ─────────────────────────────────────────────── */
 .search-wrap {
   position: relative;
@@ -519,7 +571,7 @@ a {
   background: linear-gradient(
     135deg,
     var(--blue) 0%,
-    #3b82f6 60%,
+    #538fee 60%,
     #60a5fa 100%
   );
   border-radius: var(--radius-lg);

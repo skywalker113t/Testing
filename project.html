@@ -84,14 +84,14 @@
             <h1 class="page-title">My Projects</h1>
             <p class="page-sub">Welcome back, <strong>Alex Okonkwo</strong>. Track your active work, upcoming deadlines, and peer review tasks.</p>
           </div>
-          <button class="btn-primary">+ New Project</button>
+          <button class="btn-primary project">+ New Project</button>
         </div>
 
         <!-- Project Filters -->
         <div class="filter-tabs">
-          <button class="tab active">Active</button>
-          <button class="tab">Drafts</button>
-          <button class="tab">Review</button>
+          <button class="tab active project">Active</button>
+          <button class="tab project">Drafts</button>
+          <button class="tab project">Review</button>
         </div>
 
         <!-- Search -->
@@ -332,5 +332,20 @@
         });
       });
     </script>
+    <script>
+      const tabs = document.querySelectorAll(".filter-tabs .tab");
+      
+      tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+      
+          // remove active from all
+          tabs.forEach(t => t.classList.remove("active"));
+      
+          // add active to clicked one
+          tab.classList.add("active");
+      
+        });
+      });
+      </script>
   </body>
 </html>
