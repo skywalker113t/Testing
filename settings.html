@@ -17,15 +17,19 @@
         </a>
 
         <nav class="nav-links">
-          <a href="index.html">Home</a>
-          <nav class="nav-links">
-            <a class="logo-link", href="profile.html">
-              <img src="/images/eeh.jpg" alt="profile" class="nav-icon">
-            </a>
+
+          <a class="logo-link" href="index.html">
+            <img src="/images/home.png" alt="home" class="nav-icon home">
           </a>
-          <a class="logo-link", href="settings.html">
+        
+          <a class="logo-link" href="profile.html">
+            <img src="/images/eeh.jpg" alt="profile" class="nav-icon">
+          </a>
+        
+          <a class="logo-link" href="settings.html">
             <img src="/images/download1.png" alt="settings" class="nav-icon">
           </a>
+        
         </nav>
 
       <!-- Hamburger (mobile only) -->
@@ -43,23 +47,23 @@
     <h3>Menu</h3>
 
     <a href="#" class="menu-item settings active">
-      <span class="menu-icon">⚙️</span>
+      <span class="menu-icon"></span>
       <span> Account</span>
     </a>
     <a href="#" class="menu-item" >
-      <span class="menu-icon">👤</span>
+      <span class="menu-icon"></span>
       <span>Profile</span>
     </a>
     <a href="#" class="menu-item ">
-      <span class="menu-icon">🔒</span>
+      <span class="menu-icon"></span>
       <span> Security</span>
     </a>
     <a href="#" class="menu-item ">
-      <span class="menu-icon">🔔</span>
+      <span class="menu-icon"></span>
       <span> Notifications</span>
     </a>
     <a href="#" class="menu-item ">
-      <span class="menu-icon">O</span>
+      <span class="menu-icon"></span>
       <span>Themes</span>
     </a>
     <div class="menu-divider"></div>
@@ -70,7 +74,21 @@
 </div>
 </div>
 
-<script src="settings.js"></script>
+<script>
+  const tabs = document.querySelectorAll(".setting-tab");
+  
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+  
+      // remove active from all
+      tabs.forEach(t => t.classList.remove("active"));
+  
+      // add active to clicked one
+      tab.classList.add("active");
+  
+    });
+  });
+  </script>
 
 </body>
 </html>
