@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduConnect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="/assets/index-AbQL_gds.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BgDaVjf4.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+
+          <div class="event-detail">
+            <p class="event-name">Group Check-in</p>
+            <p class="event-time">6:00 PM · Python Cohort</p>
+          </div>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date">
+            <span class="ev-day">Fri</span>
+            <span class="ev-num">11</span>
+          </div>
+          <div class="event-detail">
+            <p class="event-name">Project Deadline</p>
+            <p class="event-time">11:59 PM · Draft submission</p>
+          </div>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date">
+            <span class="ev-day">Sat</span>
+            <span class="ev-num">12</span>
+          </div>
+          <div class="event-detail">
+            <p class="event-name">Live Workshop</p>
+            <p class="event-time">2:00 PM · Data Visualisation</p>
+          </div>
+        </div>
+
+      </aside>
+    </div><!-- /container -->
+
+    <script>
+      // Hamburger toggle
+      const btn = document.getElementById('hamburgerBtn');
+      const nav = document.getElementById('mainNav');
+      btn.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        btn.classList.toggle('active');
+      });
+
+      // Close nav when a link is clicked (mobile)
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('open');
+          btn.classList.remove('active');
+        });
+      });
+    </script>
+  </body>
+</html>
