@@ -1,7 +1,10 @@
 import Navbar from '../components/Navbar.jsx';
 import Sidebar from '../components/Sidebar.jsx';
+import { useState } from 'react';
 
 export default function Projects() {
+  const [activeTab, setActiveTab] = useState('Active'); // Default to 'Active'
+
   return (
     <>
       <Navbar />
@@ -17,15 +20,46 @@ export default function Projects() {
             </div>
             <button className="btn-primary project">+ New Project</button>
           </div>
-          <div className="filter-tabs">
-            <button className="tab active project">Active</button>
-            <button className="tab project">Drafts</button>
-            <button className="tab project">Review</button>
-          </div>
+
+          {/* FIX: Added relative positioning and zIndex to ensure clicks register */}
+          <div className="filter-tabs" style={{ 
+  position: 'relative', 
+  zIndex: 9999, 
+  pointerEvents: 'all',
+  display: 'flex',
+  gap: '10px',
+  padding: '10px 0',
+  clear: 'both' // This pushes it away from any floating elements above it
+}}>
+  {['Active', 'Drafts', 'Review'].map((tab) => (
+    <button 
+      key={tab}
+      className={`tab Projects ${activeTab === tab ? 'active' : ''}`}
+      onClick={() => {
+        console.log("CLICKED:", tab); // Watch your console (F12) for this!
+        setActiveTab(tab);
+      }}
+      style={{
+        cursor: 'pointer',
+        padding: '8px 16px',
+        backgroundColor: activeTab === tab ? '#ff7c00' : '#eee',
+        color: activeTab === tab ? '#fff' : '#333',
+        border: '1px solid #ccc',
+        borderRadius: '4px',
+        position: 'relative',
+        zIndex: 10000
+      }}
+    >
+      {tab}
+    </button>
+  ))}
+</div>
+
           <div className="search-wrap">
             <span className="search-icon">🔎</span>
             <input type="text" className="search-input" placeholder="Search projects..." />
           </div>
+
           <div className="active-project-banner">
             <p className="apb-label">Active Projects</p>
             <h2 className="apb-title">Work in progress</h2>
@@ -34,6 +68,7 @@ export default function Projects() {
               <span>Keep your deadlines on track</span>
             </div>
           </div>
+
           <section className="section">
             <div className="section-header">
               <h3 className="section-title">Active Projects</h3>
@@ -55,6 +90,7 @@ export default function Projects() {
                   <span>Next: Finalise charts and export filters</span>
                 </div>
               </div>
+
               <div className="path-card">
                 <div className="path-top">
                   <div className="path-badge">Review</div>
@@ -70,6 +106,7 @@ export default function Projects() {
                   <span>Next: Update model summary and charts</span>
                 </div>
               </div>
+
               <div className="path-card">
                 <div className="path-top">
                   <div className="path-badge">Planning</div>
@@ -87,6 +124,7 @@ export default function Projects() {
               </div>
             </div>
           </section>
+
           <section className="section">
             <div className="section-header">
               <h3 className="section-title">Project Milestones</h3>
@@ -123,6 +161,7 @@ export default function Projects() {
               </div>
             </div>
           </section>
+
           <section className="section">
             <div className="section-header">
               <h3 className="section-title">Project Team</h3>
@@ -144,6 +183,7 @@ export default function Projects() {
             </div>
           </section>
         </main>
+
         <aside className="card trending">
           <h3>Active Projects</h3>
           <div className="trend-item">

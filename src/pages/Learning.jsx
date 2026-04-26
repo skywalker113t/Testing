@@ -1,7 +1,11 @@
 import Navbar from '../components/Navbar.jsx';
 import Sidebar from '../components/Sidebar.jsx';
 
+import { useState } from 'react'; // Add this at the top
+
 export default function Learning() {
+  const [activeTab, setActiveTab] = useState('All'); // Track the tab name
+
   return (
     <>
       <Navbar />
@@ -14,10 +18,16 @@ export default function Learning() {
               <p className="page-sub">Explore structured paths to build real-world skills...</p>
             </div>
             <div className="filter-tabs">
-              <button className="tab active learning">All</button>
-              <button className="tab learning">Enrolled</button>
-              <button className="tab learning">Completed</button>
-              <button className="tab learning">Saved</button>
+            
+      {['All', 'Enrolled', 'Completed', 'Saved'].map((tab) => (
+        <button 
+          key={tab}
+          className={`tab learning ${activeTab === tab ? 'active' : ''}`}
+          onClick={() => setActiveTab(tab)}
+        >
+          {tab}
+        </button>
+      ))}
             </div>
           </div>
           <div className="search-wrap">

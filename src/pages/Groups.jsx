@@ -1,7 +1,11 @@
 import Navbar from '../components/Navbar.jsx';
 import Sidebar from '../components/Sidebar.jsx';
+import { useState } from 'react'; // Added useState
 
 export default function Groups() {
+  // 1. Initialize state to track which tab is clicked
+  const [activeTab, setActiveTab] = useState('My Groups');
+
   return (
     <>
       <Navbar />
@@ -15,11 +19,31 @@ export default function Groups() {
             </div>
             <button className="btn-primary groups">+ Create Group</button>
           </div>
-          <div className="filter-tabs">
-            <button className="tab active groups">My Groups</button>
-            <button className="tab groups">Discover</button>
-            <button className="tab groups">Invites</button>
+
+          {/* 2. FIXED: Dynamic buttons with Green active state and click fix */}
+          <div className="filter-tabs" style={{ position: 'relative', zIndex: 10 }}>
+            {['My Groups', 'Discover', 'Invites'].map((tab) => (
+              <button 
+                key={tab}
+                className={`tab groups ${activeTab === tab ? 'active' : ''}`}
+                onClick={() => setActiveTab(tab)}
+                style={{
+                  cursor: 'pointer',
+                  padding: '10px 20px',
+                  marginRight: '10px',
+                  borderRadius: '5px',
+                  border: '1px solid #ddd',
+                  // GREEN COLOR FIX:
+                  backgroundColor: activeTab === tab ? '#2ecc71' : '#f9f9f9',
+                  color: activeTab === tab ? '#fff' : '#555',
+                  transition: '0.3s'
+                }}
+              >
+                {tab}
+              </button>
+            ))}
           </div>
+
           <section className="section">
             <div className="section-header">
               <h3 className="section-title">My Accountability Group</h3>
@@ -46,6 +70,7 @@ export default function Groups() {
               </div>
             </div>
           </section>
+
           <section className="section">
             <div className="section-header">
               <h3 className="section-title">Group Discussion</h3>
@@ -70,6 +95,7 @@ export default function Groups() {
                   <span className="feed-action">🔁 Share</span>
                 </div>
               </div>
+
               <div className="feed-post">
                 <div className="feed-post-header">
                   <div className="feed-avatar" style={{ background: '#fde68a', color: '#92400e' }}>D</div>
@@ -88,24 +114,7 @@ export default function Groups() {
                   <span className="feed-action">🔁 Share</span>
                 </div>
               </div>
-              <div className="feed-post">
-                <div className="feed-post-header">
-                  <div className="feed-avatar" style={{ background: '#e9d5ff', color: '#6b21a8' }}>K</div>
-                  <div>
-                    <p className="feed-name">Kwame Asante</p>
-                    <p style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Python Cohort #4</p>
-                  </div>
-                  <span className="feed-time">2 days ago</span>
-                </div>
-                <p className="feed-body">
-                  Shared a useful resource for visualisation: <span className="text-blue-strong">Seaborn cheatsheet 📊</span>. Helped me a lot with the bar chart exercises in module 4!
-                </p>
-                <div className="feed-actions">
-                  <span className="feed-action">👍 9 Likes</span>
-                  <span className="feed-action">💬 2 Replies</span>
-                  <span className="feed-action">🔁 Share</span>
-                </div>
-              </div>
+
               <div className="feed-compose">
                 <div className="feed-avatar" style={{ background: '#bfdbfe', color: '#1d4ed8', width: '32px', height: '32px', fontSize: '12px' }}>A</div>
                 <input className="compose-input" type="text" placeholder="Share an update with your group…" />
@@ -113,6 +122,7 @@ export default function Groups() {
               </div>
             </div>
           </section>
+
           <section className="section">
             <div className="section-header">
               <h3 className="section-title">Discover Groups</h3>
@@ -133,6 +143,7 @@ export default function Groups() {
             </div>
           </section>
         </main>
+
         <aside className="card trending">
           <h3>Group Spotlight</h3>
           <div className="trend-item">
