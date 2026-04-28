@@ -31,6 +31,34 @@
     /* Fonts */
     --font-head: "Sora", sans-serif;
     --font-body: "Plus Jakarta Sans", sans-serif;
+    
+    /* ==========================================================================
+   DARK MODE OVERRIDES
+   ========================================================================== */
+[data-theme='dark'] {
+    /* Swap Backgrounds */
+    --bg-page: #0f172a;      /* Dark Navy background */
+    --bg-card: #1e293b;      /* Slightly lighter card background */
+    --border: #334155;      /* Darker borders */
+
+    /* Swap Text Colors */
+    --text-dark: #f8fafc;    /* Off-white text */
+    --text-mid: #cbd5e1;     /* Light gray text */
+    --text-muted: #94a3b8;   /* Muted text */
+
+    /* Adjust Shadows for Dark Mode */
+    --shadow: 0 4px 20px rgba(0, 0, 0, .4);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, .3);
+}
+
+/* Fix your body override so it respects the variable */
+body {
+    background: var(--bg-page); 
+    /* Remove the hardcoded #aeafb1 so it can change! */
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    /* ... rest of your body code ... */
+}
 }
 
 *, *:before, *:after {

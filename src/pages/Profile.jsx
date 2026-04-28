@@ -17,7 +17,7 @@ export default function Profile() {
                 <div className="profile-avatar"></div>
                 <div className="profile-actions">
                   <button className="btn-outline">Share Profile</button>
-                  <button className="btn-primary">Edit Profile</button>
+                  <button className="btn-primary" ><a href='profile'>Edit Profile</a></button>
                 </div>
               </div>
               <h1 className="profile-name">Alex Okonkwo</h1>

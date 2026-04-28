@@ -2490,3 +2490,592 @@ button:hover {
   color: #040505; /* optional nice gray */
   text-align: center;
 }
+
+/* settings Section*/
+
+/* ── Settings Page Specific Styles ─────────────────────────── */
+
+/* 1. The Flex Parent */
+/* The parent wrapper */
+/* 1. The Container */
+/* 1. Parent Container */
+.settings-container {
+  display: flex;
+  width: 100%;
+  max-width: 1400px; /* Big enough for both boxes */
+  margin: 0 auto;
+  padding: 40px 24px;
+  box-sizing: border-box;
+  transition: all 0.4s ease;
+  flex-wrap: nowrap; /* Forces side-by-side layout */
+}
+
+/* STATE: Centered (Initial wide menu) */
+.centered-view {
+  justify-content: center;
+}
+
+.centered-view .menu {
+  width: 100%; /* Makes the card stretch out */
+  max-width: 1000px; /* But stays elegant, not hitting screen edges */
+}
+
+/* STATE: Split (Side-by-side) */
+.split-view {
+  justify-content: flex-start;
+  gap: 32px; /* The specific space between your 'Brother' boxes */
+}
+
+.split-view .menu {
+  width: 320px; /* The 'Shrink' width */
+  flex-shrink: 0; /* Stops the menu from being squished */
+}
+
+/* 2. Global Card Styling (Used for both Menu and Content) */
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* 3. The 'Big Brother' Content Box */
+.content-box {
+  flex-grow: 1; /* This pushes the box all the way to the right side */
+  min-height: 600px;
+  padding: 32px;
+  background: white;
+  animation: slideIn 0.4s ease-out forwards;
+}
+
+
+/* 4. Menu Items - The Blue Bar Stretching */
+.menu-item {
+  width: 100%; /* Stretch items to match the box width */
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.menu-item.active {
+  background-color: #2563eb; /* Your blue color */
+  color: white;
+}
+
+.menu-item:hover:not(.active) {
+  background-color: #f3f4f6;
+}
+
+/* 5. Extras & Animations */
+.menu-divider {
+  height: 1px;
+  background-color: #eee;
+  margin: 16px 0;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Account Menu*/
+.settings-section h3 {
+  margin-bottom: 4px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.section-desc {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+/* Current Username Display */
+.current-user-info {
+  background: #f8fafc;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px dashed #cbd5e1;
+}
+
+.current-user-info .label {
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.current-user-info .value {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* The @ wrapper */
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.input-wrapper:focus-within {
+  border-color: #2563eb;
+}
+
+.at-symbol {
+  padding-left: 16px;
+  color: #94a3b8;
+  font-weight: bold;
+}
+
+.input-wrapper input {
+  border: none !important; /* Remove individual border */
+  outline: none;
+  padding: 12px;
+  width: 100%;
+}
+
+.input-hint {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-top: 6px;
+}
+
+/* Primary Button */
+.btn-primary {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+/* profile Settings*/
+.bio-area {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.skills-preview-list {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.skill-tag {
+  background: #eff6ff; /* Light blue to match your profile */
+  color: #2563eb;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid #bfdbfe;
+  cursor: pointer;
+}
+
+.skill-tag:hover {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.save-btn {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 200px;
+}
+/* Ensure the content body spreads out nicely */
+.content-body {
+  display: flex;
+  flex-direction: column;
+  gap: 32px; /* Adds space between the sections */
+  margin-top: 20px;
+}
+
+/* Fixes the Input/Label layout */
+/* 1. Ensure each group is a vertical stack */
+.input-group {
+  display: flex;
+  flex-direction: column; /* Stacks label on top of input */
+  align-items: flex-start; /* Aligns everything to the left */
+  gap: 6px;               /* Tightens the distance between label and box */
+  margin-bottom: 24px;    /* Creates a clean gap from the box above it */
+  width: 100%;
+}
+
+/* 2. Style the Label specifically */
+.input-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #475569;
+  margin: 0;              /* Removes any default browser margins */
+  padding: 0;
+}
+
+/* 3. The Bio Area Fix */
+.bio-area {
+  width: 100% !important;
+  min-height: 120px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.5;      /* Makes text inside easier to read */
+  box-sizing: border-box;
+}
+
+
+
+/*Security Settings */
+
+/* A blue version of your status card */
+.card-inset-blue {
+  background: #eff6ff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 32px;
+  border-left: 5px solid #2563eb;
+}
+
+.active-now {
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.session-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: #f8fafc;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.session-icon {
+  font-size: 1.5rem;
+}
+
+.session-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.session-details span {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.text-btn-danger {
+  background: none;
+  border: none;
+  color: #dc2626;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
+  padding: 0;
+}
+
+.text-btn-danger:hover {
+  text-decoration: underline;
+}
+
+/* This container holds the text and the switch together */
+.security-item-row {
+  display: flex;
+  justify-content: space-between; /* Pushes text to left, switch to right */
+  align-items: center;           /* Centers them vertically so they align */
+  width: 100%;
+  padding: 10px 0;
+}
+
+/* Keeps the heading and description tight together */
+.security-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.security-text h3 {
+  margin: 0; /* Removes default space that pushes the switch away */
+}
+
+.security-text p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+/* Style the switch so it looks modern */
+.toggle-switch {
+  cursor: pointer;
+  width: 20px; 
+  height: 20px;
+  /* If you use the custom pill CSS I gave you earlier, 
+     this is where that styling would live! */
+}
+
+.security-status-container {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.status-steps {
+  display: flex;
+  flex-direction: column; /* Use 'row' if you want them side-by-side */
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.status-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0.5; /* Dims the levels that aren't the current one */
+  transition: all 0.3s ease;
+}
+
+.status-step.active {
+  opacity: 1;
+  color: var(--brand-color);
+  font-weight: 700;
+}
+
+.status-icon {
+  display: flex;
+  align-items: center;
+}
+
+.status-label {
+  font-size: 0.9rem;
+}
+
+
+.spiced-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 32px; 
+}
+
+.spiced-card:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.icon-box-blue {
+  width: 44px;
+  height: 44px;
+  background: #eff6ff; /* Soft blue background */
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-indicator.off {
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+.text-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* This puts space between the Title and the "Secure your account..." text */
+  margin-top: 10px; /* Pushes the text away from the shield icon */
+}
+
+.status-and-action {
+  margin-top: 12px; /* Pushes the "NOT ENABLED" badge down a bit */
+}
+
+.text-stack h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.text-stack p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.security-settings-flow h3 {
+  margin-top: 10px; /* Optional: adds a bit more space above titles */
+  margin-bottom: 15px;
+}
+
+/* Target the container for the Login Credentials */
+.settings-section {
+  margin-top: 40px;    /* This creates the gap above the title */
+  margin-bottom: 20px; /* This keeps space below the button */
+}
+
+/* If you want to be extra precise with the text itself */
+.settings-section h3 {
+  margin-bottom: 8px;  /* Space between "LOGIN CREDENTIALS" and "Last changed" */
+}
+
+.password-info .hint {
+  margin-bottom: 16px; /* Space between the text and the Blue Button */
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.label-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.label-stack span {
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 0.95rem;
+}
+
+.sub-label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin: 0;
+  font-weight: 400;
+}
+
+.margin-bottom-32 {
+  margin-bottom: 32px;
+}
+
+/* Ensure icons don't shrink when text is long */
+.setting-label svg {
+  flex-shrink: 0;
+}
+
+/* 1. Force the row to be horizontal */
+.setting-row {
+  display: flex;
+  justify-content: space-between; /* Pushes text to left, checkbox to right */
+  align-items: center;           /* Centers everything vertically */
+  padding: 16px 0;
+  border-bottom: 1px solid #f1f5f9;
+  width: 100%;
+}
+
+/* 2. Keeps the Icon and the Text together on the left */
+.setting-left {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between the Icon and the Text */
+}
+
+/* 3. Ensures the title and sub-text stay stacked vertically */
+.label-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.label-stack span {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+.sub-label {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* 4. Fix the checkbox size so it doesn't look like a tiny box */
+.toggle-switch {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* 1. Force the row to be horizontal */
+.setting-row {
+  display: flex;
+  justify-content: space-between; /* Pushes text to left, checkbox to right */
+  align-items: center;           /* Centers everything vertically */
+  padding: 16px 0;
+  border-bottom: 1px solid #f1f5f9;
+  width: 100%;
+}
+
+/* 2. Keeps the Icon and the Text together on the left */
+.setting-left {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between the Icon and the Text */
+}
+
+/* 3. Ensures the title and sub-text stay stacked vertically */
+.label-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.label-stack span {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+.sub-label {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* 4. Fix the checkbox size so it doesn't look like a tiny box */
+.toggle-switch {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
