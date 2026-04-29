@@ -3138,7 +3138,7 @@ button:hover {
 
 /* This fixes your "Invisible" screenshot issue */
 .theme-preview.light {
-    background: #ffffff !important;
+    background: #b9b7b7 !important;
     border: 1px solid #e5e7eb;
 }
 

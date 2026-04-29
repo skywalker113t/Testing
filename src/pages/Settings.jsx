@@ -147,8 +147,7 @@ export default function Settings({ currentTheme, onThemeChange }) {
 
                   {/* Dark Mode Card */}
                   
-                  <div className={`theme-card ${currentTheme === 'dark' ? 'active' : ''}`} onClick={() => {
-               alert("Click detected by browser!"); 
+                  <div className={`theme-card ${currentTheme === 'dark' ? 'active' : ''}`} onClick={() => { 
               console.log("Dark mode card clicked!"); onThemeChange('dark');
               }}
 >
