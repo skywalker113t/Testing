@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard.jsx';
 import Learning from './pages/Learning.jsx';
@@ -12,6 +13,14 @@ import Username from './pages/Username.jsx';
 import NotFound from './pages/NotFound.jsx';
 
 function App() {
+  // We use localStorage so it stays dark even if you refresh!
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
   return (
     <Routes>
       <Route path="/" element={<Dashboard />} />
@@ -20,7 +29,12 @@ function App() {
       <Route path="/groups" element={<Groups />} />
       <Route path="/achievements" element={<Achievements />} />
       <Route path="/profile" element={<Profile />} />
-      <Route path="/settings" element={<Settings />} />
+      
+      <Route 
+        path="/settings" 
+        element={<Settings currentTheme={theme} onThemeChange={setTheme} />} 
+      />
+      
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/username" element={<Username />} />

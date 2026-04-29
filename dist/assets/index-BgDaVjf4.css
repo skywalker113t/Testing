@@ -1,8 +1,7 @@
 /* ==========================================================================
-   1. VARIABLES & RESET
+   1. VARIABLES & RESET (LIGHT MODE DEFAULT)
    ========================================================================== */
    :root {
-    /* Colors */
     --blue: #2563eb;
     --blue-light: #dbeafe;
     --blue-dark: #1d4ed8;
@@ -12,66 +11,51 @@
     --orange: rgb(219, 114, 27);
     --red: rgb(192, 55, 37);
     
-    /* Text & Background */
+    /* Theme Variables (Light Defaults) */
+    --bg-page: #f3f4f6;
+    --bg-card: #ffffff;
     --text-dark: #111827;
     --text-mid: #374151;
     --text-muted: #6b7280;
     --border: #e5e7eb;
-    --bg-page: #f3f4f6;
-    --bg-card: #ffffff;
-    
-    /* Accents */
+    --shadow: 0 4px 20px rgba(0, 0, 0, .07);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, .05);
+
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 16px;
-    --shadow: 0 4px 20px rgba(0, 0, 0, .07);
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, .05);
     --nav-h: 64px;
-    
-    /* Fonts */
     --font-head: "Sora", sans-serif;
     --font-body: "Plus Jakarta Sans", sans-serif;
-    
-    /* ==========================================================================
-   DARK MODE OVERRIDES
+}
+
+/* ==========================================================================
+   DARK MODE OVERRIDES (The "Switch")
    ========================================================================== */
 [data-theme='dark'] {
-    /* Swap Backgrounds */
-    --bg-page: #0f172a;      /* Dark Navy background */
-    --bg-card: #1e293b;      /* Slightly lighter card background */
-    --border: #334155;      /* Darker borders */
-
-    /* Swap Text Colors */
-    --text-dark: #f8fafc;    /* Off-white text */
-    --text-mid: #cbd5e1;     /* Light gray text */
-    --text-muted: #94a3b8;   /* Muted text */
-
-    /* Adjust Shadows for Dark Mode */
+    --bg-page: #0f172a !important;
+    --bg-card: #1e293b !important;
+    --text-dark: #f8fafc !important;
+    --text-mid: #cbd5e1 !important;
+    --text-muted: #94a3b8 !important;
+    --border: #334155 !important;
     --shadow: 0 4px 20px rgba(0, 0, 0, .4);
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, .3);
 }
 
-/* Fix your body override so it respects the variable */
-body {
-    background: var(--bg-page); 
-    /* Remove the hardcoded #aeafb1 so it can change! */
-    font-family: var(--font-body);
-    color: var(--text-dark);
-    /* ... rest of your body code ... */
-}
-}
-
+/* ==========================================================================
+   BASE STYLES
+   ========================================================================== */
 *, *:before, *:after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
     background: var(--bg-page);
-    background-color: #aeafb1; /* Overriding variable for specific gray */
     font-family: var(--font-body);
     color: var(--text-dark);
     font-size: 15px;
@@ -82,7 +66,7 @@ body {
 a { text-decoration: none; color: inherit; }
 
 /* ==========================================================================
-   2. LAYOUT STRUCTURE
+   LAYOUT & NAVIGATION
    ========================================================================== */
 .container {
     display: grid;
@@ -93,18 +77,6 @@ a { text-decoration: none; color: inherit; }
     padding: 28px 24px;
 }
 
-.main-content {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    min-width: 0;
-    opacity: 0;
-    animation: fadeUp .55s ease .2s forwards;
-}
-
-/* ==========================================================================
-   3. NAVIGATION (Navbar & Sidebar)
-   ========================================================================== */
 .navbar {
     position: sticky;
     top: 0;
@@ -124,13 +96,6 @@ a { text-decoration: none; color: inherit; }
     font-size: 1.3rem;
     font-weight: 700;
     color: var(--blue);
-    letter-spacing: -.5px;
-}
-
-.menu {
-    align-self: start;
-    position: sticky;
-    top: calc(var(--nav-h) + 16px);
 }
 
 .menu-item {
@@ -139,23 +104,15 @@ a { text-decoration: none; color: inherit; }
     gap: 10px;
     padding: 10px 12px;
     border-radius: var(--radius-sm);
-    font-size: 14px;
-    font-weight: 500;
     color: var(--text-mid);
-    margin-bottom: 4px;
-    transition: 0.2s;
     cursor: pointer;
 }
 
-/* Dynamic Sidebar Active States */
-.menu-item.dashboard.active { background: var(--blue); color: #fff; }
-.menu-item.learning.active  { background: var(--purple); color: #fff; }
-.menu-item.project.active   { background: var(--orange); color: #fff; }
-.menu-item.groups.active    { background: var(--green); color: #fff; }
-.menu-item.achievements.active { background: var(--red); color: #fff; }
+.menu-item:hover { background: var(--bg-page); }
+.menu-item.active { background: var(--blue); color: #fff; }
 
 /* ==========================================================================
-   4. COMPONENTS (Cards, Buttons, Tabs)
+   COMPONENTS
    ========================================================================== */
 .card {
     background: var(--bg-card);
@@ -163,100 +120,62 @@ a { text-decoration: none; color: inherit; }
     padding: 22px 20px;
     box-shadow: var(--shadow);
     border: 1px solid var(--border);
-    opacity: 0;
-    transform: translateY(24px);
-    animation: fadeUp .55s ease forwards;
 }
 
-/* Buttons */
 .btn-primary {
     background: var(--blue);
     color: #fff;
     padding: 8px 18px;
     border-radius: var(--radius-sm);
-    font-size: 13px;
-    font-weight: 600;
     border: none;
     cursor: pointer;
-    transition: 0.2s;
-}
-
-.btn-primary.groups { background: var(--green); }
-.btn-primary.project { background: var(--orange); }
-.btn-primary:hover { opacity: 0.9; }
-
-/* Filter Tabs */
-.filter-tabs {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.tab {
-    padding: 7px 16px;
-    border-radius: 99px;
-    font-size: 13px;
-    font-weight: 600;
-    border: 1.5px solid var(--border);
-    background: var(--bg-card);
-    color: var(--text-muted);
-    cursor: pointer;
-    transition: all .2s;
-}
-
-.tab.active.groups {
-    background: var(--green) !important;
-    color: #fff !important;
-    border-color: var(--green);
 }
 
 /* ==========================================================================
-   5. SPECIAL SECTIONS (Feed & Groups)
+   THEME SETTINGS UI
    ========================================================================== */
-.my-group-card {
-    background: linear-gradient(135deg,#096e30,#29b664 60%,#48d16a);
-    border-radius: var(--radius-lg);
-    padding: 24px;
-    color: #fff;
+
+/* 1. Ensure the content area is on top and clickable */
+.content-box.card {
+    position: relative !important;
+    z-index: 100 !important; /* High enough to beat the sidebar */
+    pointer-events: auto !important;
 }
 
-.feed-wrap {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+/* 2. Grid Layout */
+.theme-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* 3. The Theme Card itself */
+.theme-card {
+    padding: 16px;
+    border: 2px solid var(--border);
     border-radius: var(--radius-md);
-    overflow: hidden;
+    background: var(--bg-card);
+    cursor: pointer !important;
+    text-align: center;
+    position: relative;
+    z-index: 101; /* Must be higher than content-box */
+    transition: all 0.2s ease;
 }
 
-.compose-btn {
-    background: var(--green);
-    color: #fff;
-    padding: 9px 16px;
-    border-radius: var(--radius-sm);
+/* 4. The Active State (Logic Check) */
+.theme-card.active { 
+    border-color: var(--blue) !important; 
+    background: rgba(37, 99, 235, 0.08) !important; 
+}
+
+/* 5. Force text to follow theme colors */
+.theme-card span {
+    color: var(--text-dark);
     font-weight: 600;
-    border: none;
-    cursor: pointer;
 }
 
-/* ==========================================================================
-   6. RESPONSIVE DESIGN
-   ========================================================================== */
-@media (max-width: 1024px) {
-    .container {
-        grid-template-columns: 210px 1fr;
-        grid-template-areas: "menu main" "trending trending";
-    }
-}
-
-@media (max-width: 768px) {
-    .container {
-        grid-template-columns: 1fr !important;
-        grid-template-areas: "main" "menu" "trending" !important;
-    }
-    .hamburger { display: flex; }
-    #mainNav { display: none; }
-    #mainNav.open { display: block; }
-}
-
-@keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
+/* 6. Click Protector (The "Glass" fix) */
+.theme-card * {
+    pointer-events: none !important;
 }
