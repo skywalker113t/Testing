@@ -45,13 +45,25 @@ html {
 
 body {
   background: var(--bg-page);
-  background-color: rgb(174, 175, 177);
   font-family: var(--font-body);
   color: var(--text-dark);
   font-size: 15px;
   line-height: 1.6;
   min-height: 100vh;
+  
 }
+
+[data-theme='dark'] {
+  --bg-page: #0f172a;
+  --bg-card: #1e293b;
+  --text-dark: #f8fafc;
+  --text-mid: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+
 
 a {
   text-decoration: none;
@@ -2562,7 +2574,7 @@ button:hover {
   box-sizing: border-box;
   transition: all 0.2s ease;
   text-decoration: none;
-  color: inherit;
+  color: var(--text-mid);
 }
 
 .menu-item.active {
@@ -3195,4 +3207,10 @@ button:hover {
   position: relative; 
   z-index: 999 !important; /* Force it to the top layer */
   cursor: pointer !important;
+}
+
+html[data-theme='dark'].menu-item i,
+body[data-theme='dark'].menu-item i {
+  color: #000000 !important;
+
 }
