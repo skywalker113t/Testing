@@ -39,6 +39,16 @@
   --font-body: "Plus Jakarta Sans", sans-serif;
 }
 
+[data-theme='dark'] {
+  --bg-page: #0f172a;
+  --bg-card: #1e293b;
+  --text-dark: #f8fafc;  /* This makes your main titles white */
+  --text-mid: #cbd5e1;   /* This makes your menu text light grey */
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -52,17 +62,6 @@ body {
   min-height: 100vh;
   
 }
-
-[data-theme='dark'] {
-  --bg-page: #0f172a;
-  --bg-card: #1e293b;
-  --text-dark: #f8fafc;
-  --text-mid: #cbd5e1;
-  --text-muted: #94a3b8;
-  --border: #334155;
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-}
-
 
 
 a {
@@ -2383,6 +2382,8 @@ a {
   width: 1024px;
   height: 450px;
   margin: 80px auto;
+  background-color: rgb(174, 175, 177) !important;
+  min-height: 100vh;
   display: flex;
   border-radius: 15px;
   overflow: hidden;
@@ -3209,8 +3210,200 @@ button:hover {
   cursor: pointer !important;
 }
 
-html[data-theme='dark'].menu-item i,
-body[data-theme='dark'].menu-item i {
-  color: #000000 !important;
+/* --- THE INVISIBLE TEXT RESCUE BLOCK --- */
 
+/* 1. Force the Main Titles and Text to be White in Dark Mode */
+[data-theme='dark'] .page-title,
+[data-theme='dark'] .section-title,
+[data-theme='dark'] .path-name,
+[data-theme='dark'] .ms-title,
+[data-theme='dark'] .group-name,
+[data-theme='dark'] .card h3,
+[data-theme='dark'] .welcome-name {
+    color: #ffffff !important;
+}
+
+/* 2. Force the Secondary/Menu Text to be a Light Grey so it's visible */
+[data-theme='dark'] .menu-item,
+[data-theme='dark'] .nav-links a,
+[data-theme='dark'] .path-desc,
+[data-theme='dark'] .ms-sub,
+[data-theme='dark'] .welcome-desc,
+[data-theme='dark'] .trend-name {
+    color: #cbd5e1 !important; 
+}
+
+/* 3. Ensure the Cards themselves are Dark so the White text pops */
+[data-theme='dark'] .card,
+[data-theme='dark'] .navbar,
+[data-theme='dark'] .feed-wrap,
+[data-theme='dark'] .path-card,
+[data-theme='dark'] .group-card {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+}
+
+/* 4. Fix the Search Input text (so you can see what you type) */
+[data-theme='dark'] .search-input {
+    background-color: #0f172a !important;
+    color: #ffffff !important;
+    border-color: #334155 !important;
+}
+
+/* --- MENU CARD GLASS HOVER ONLY --- */
+
+/* Reset any default hover background that might be white */
+[data-theme='dark'] .card.menu .menu-item:hover {
+  background: rgba(255, 255, 255, 0.08) !important; /* Very subtle white tint */
+  backdrop-filter: blur(10px) !important;           /* The glass frosting */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  transition: all 0.2s ease;
+}
+
+/* Ensure icons inside the menu item stay bright on hover */
+[data-theme='dark'] .card.menu .menu-item:hover i {
+  color: #ffffff !important;
+}
+
+/* Keep the active item solid so it doesn't get "lost" in the glass */
+[data-theme='dark'] .card.menu .menu-item.active {
+  background: var(--purple) !important; /* Or whatever your active color is */
+  backdrop-filter: none !important;
+}
+
+/* --- PURPLE ACTIVE STATE FIX --- */
+
+/* 1. Force the active menu item to use your Purple */
+[data-theme='dark'] .card.menu .menu-item.active {
+  background-color: #16b0d6 !important; /* Vibrant Purple */
+  color: #ffffff !important;
+  backdrop-filter: none !important; /* Keeps active state solid/readable */
+  box-shadow: 0 4px 12px rgba(51, 154, 250, 0.3) !important; /* Subtle purple glow */
+}
+
+/* 2. Ensure the icon inside the active item is also white */
+[data-theme='dark'] .card.menu .menu-item.active i {
+  color: #ffffff !important;
+}
+
+/* 3. Keep the hover state as the "Transparent Glass" we just built */
+[data-theme='dark'] .card.menu .menu-item:not(.active):hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px);
+  color: #ffffff !important;
+}
+
+[data-theme='dark'] .nav-links img {
+  /* This turns black icons white and makes white backgrounds less jarring */
+  filter: invert(1) brightness(2); 
+  mix-blend-mode: screen; /* This hides the black/dark parts of the image background */
+  border-radius: 50%; /* If they are profile pics, this keeps them circular */
+}
+
+/* Targeting the image inside your actual .logo class */
+.logo img {
+  mix-blend-mode: multiply; /* Makes white background transparent */
+  background-color: transparent !important;
+}
+
+/* For Dark Mode: If the logo becomes too dark to see */
+[data-theme='dark'] .logo img {
+  mix-blend-mode: screen; /* Swaps the blend to work on dark backgrounds */
+  filter: brightness(1.2) contrast(1.1);
+}
+
+/* This fixes the "Solid White" block when clicking Profile/Settings */
+[data-theme='dark'] .nav-links a:active,
+[data-theme='dark'] .nav-links a.active,
+[data-theme='dark'] .nav-links a:focus {
+    background: rgba(255, 255, 255, 0.1) !important; /* Transparent Glass */
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    outline: none;
+}
+
+/* --- NAVBAR & LOGO HOVER FIX --- */
+
+/* 1. Fix the Hover for Profile and Settings Links */
+[data-theme='dark'] .nav-links a:hover,
+[data-theme='dark'] .profile-details:hover {
+    background: rgba(255, 255, 255, 0.1) !important; /* Glass effect */
+    backdrop-filter: blur(10px) !important;
+    border-radius: 8px;
+    color: #ffffff !important;
+}
+
+/* 2. Fix the "Click" (Active) state so it stays transparent glass too */
+[data-theme='dark'] .nav-links a:active,
+[data-theme='dark'] .profile-details:active {
+    background: rgba(255, 255, 255, 0.15) !important; /* Slightly darker glass */
+    backdrop-filter: blur(10px) !important;
+}
+
+/* 3. Ensure the Logo doesn't get a background when hovered */
+.logo:hover, 
+.logo img:hover {
+    background-color: transparent !important;
+    background: none !important;
+    transform: scale(1.02); /* Subtle pop instead of a color change */
+    transition: transform 0.2s ease;
+}
+
+/* 4. This kills any default "Blue" or "White" focus outline from the browser */
+.nav-links a:focus, 
+.logo:focus {
+    outline: none !important;
+    background: transparent !important;
+}
+
+/* --- EDUCONNECT LOGO ONLY --- */
+
+/* Targets ONLY the first NavLink in the navbar */
+.navbar > .logo-link:first-child {
+  background: transparent !important;
+  background-color: transparent !important;
+  mix-blend-mode: multiply; /* Removes white background */
+  display: inline-flex;
+  padding: 0;
+}
+
+/* Ensure no hover/active background on the main logo */
+.navbar > .logo-link:first-child:hover,
+.navbar > .logo-link:first-child.active {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Specific Dark Mode for just the EduConnect Logo */
+[data-theme='dark'] .navbar > .logo-link:first-child img {
+  mix-blend-mode: screen; 
+  filter: brightness(1);
+}
+
+/* --- SECURITY STATUS CONTAINER --- */
+
+/* Ensures the container itself turns dark navy */
+[data-theme='dark'] .security-status-container {
+  background-color: #1e293b !important;
+  border: 1px solid #334155 !important;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* Fixes any text inside the security container */
+[data-theme='dark'] .security-status-container h3,
+[data-theme='dark'] .security-status-container .status-label {
+  color: #ffffff !important;
+}
+
+/* If you have a status indicator (like 'Protected' or 'Verified') */
+[data-theme='dark'] .status-protected {
+  color: var(--green) !important;
+  background: rgba(22, 163, 74, 0.1);
+  padding: 4px 10px;
+  border-radius: 20px;
 }
