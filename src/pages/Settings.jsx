@@ -109,19 +109,43 @@ export default function Settings({ currentTheme, onThemeChange }) {
 
             {/* 4. Notifications */}
             {activeTab === 'notifications' && (
-              <div className="notifications-flow">
-                <div className="setting-row">
-                  <div className="setting-left">
-                    <MessageSquare size={20} color="#2563eb" />
-                    <div className="label-stack">
-                      <span>Direct Messages</span>
-                      <p className="sub-label">Private messages from others.</p>
-                    </div>
-                  </div>
-                  <input type="checkbox" className="toggle-switch" defaultChecked />
-                </div>
-              </div>
-            )}
+  <div className="notifications-flow fade-in">
+    {/* Socio Interaction */}
+    <div className="setting-row">
+      <div className="setting-left">
+        <MessageSquare size={20} color="#2563eb" />
+        <div className="label-stack">
+          <span>Direct Messages</span>
+          <p className="sub-label">Private messages from peers and mentors.</p>
+        </div>
+      </div>
+      <input type="checkbox" className="toggle-switch" defaultChecked />
+    </div>
+
+    {/* Educational Interaction */}
+    <div className="setting-row">
+      <div className="setting-left">
+        <Users size={20} color="#a855f7" />
+        <div className="label-stack">
+          <span>Study Group Alerts</span>
+          <p className="sub-label">Notifications for new resources in your groups.</p>
+        </div>
+      </div>
+      <input type="checkbox" className="toggle-switch" defaultChecked />
+    </div>
+
+    <div className="setting-row">
+      <div className="setting-left">
+        <BellRing size={20} color="#eab308" />
+        <div className="label-stack">
+          <span>Deadline Reminders</span>
+          <p className="sub-label">Alerts for upcoming course tasks and assignments.</p>
+        </div>
+      </div>
+      <input type="checkbox" className="toggle-switch" defaultChecked />
+    </div>
+  </div>
+)}
 
             {/* 5. THEMES (FIXED VERSION) */}
             {activeTab === 'themes' && (
