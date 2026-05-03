@@ -3407,3 +3407,31 @@ button:hover {
   padding: 4px 10px;
   border-radius: 20px;
 }
+
+/* --- NOTIFICATIONS: LABEL STACK FIX --- */
+
+/* Fixes the "Invincible" text in the Notification rows */
+[data-theme='dark'] .label-stack span {
+  color: #ffffff !important; /* Forces the main label to white */
+  font-weight: 600;
+  display: block;
+}
+
+[data-theme='dark'] .label-stack .sub-label {
+  color: #94a3b8 !important; /* Light grey for the sub-text */
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Fixes the stacking in the Security steps */
+[data-theme='dark'] .status-step .status-label {
+  color: #cbd5e1 !important;
+  font-size: 0.75rem;
+  margin-top: 4px;
+}
+
+/* Force the active security level to stand out */
+[data-theme='dark'] .status-step.active .status-label {
+  color: #ffffff !important;
+  font-weight: bold;
+}
