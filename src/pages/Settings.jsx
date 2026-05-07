@@ -29,7 +29,7 @@ const securityLevels = [
 ];
 
 export default function Settings({ currentTheme, onThemeChange }) {
-  const [activeTab, setActiveTab] = useState('themes'); // Defaulting to themes so you can see the fix immediately
+  const [activeTab, setActiveTab] = useState(null); // Defaulting to themes so you can see the fix immediately
   const menuItems = ['Account', 'Profile', 'Security', 'Notifications', 'Themes'];
 
   return (
@@ -37,7 +37,7 @@ export default function Settings({ currentTheme, onThemeChange }) {
       <Navbar />
       <div className={`settings-container ${activeTab ? 'split-view' : 'centered-view'}`}>
         
-        {/* SIDEBAR / MENU */}
+        {/* SIDEBAR stays visible */}
         <aside className="card menu">
           <h3>Menu</h3>
           {menuItems.map((item) => (
@@ -51,53 +51,54 @@ export default function Settings({ currentTheme, onThemeChange }) {
           ))}
         </aside>
 
-        {/* CONTENT AREA */}
-        <main className="content-box card">
-          <div className="content-header">
-            <h2 style={{textTransform: 'capitalize'}}>{activeTab} Settings</h2>
-            <hr />
-          </div>
+        {/* This <main> tag provides the background and border for the right side */}
+        {activeTab && (
+          <main className="content-box card">
+            <div className="content-header">
+              <h2 style={{ textTransform: 'capitalize' }}>{activeTab} Settings</h2>
+              <hr />
+            </div>
 
-          <div className="content-body">
-            {/* 1. Account */}
-            {activeTab === 'account' && (
-              <div className="account-settings-flow">
-                <section className="settings-section">
-                  <h3>Display Identity</h3>
-                  <div className="username-card">
-                    <div className="current-user-info">
-                      <span className="label">Current Username</span>
-                      <span className="value">@tech_creator_24</span>
+            <div className="content-body">
+              {/* 1. Account */}
+              {activeTab === 'account' && (
+                <div className="account-settings-flow">
+                  <section className="settings-section">
+                    <h3>Display Identity</h3>
+                    <div className="username-card">
+                      <div className="current-user-info">
+                        <span className="label">Current Username</span>
+                        <span className="value">@tech_creator_24</span>
+                      </div>
+                      <div className="input-group">
+                        <label>New Username</label>
+                        <input type="text" placeholder="enter_new_username" className="settings-input" />
+                      </div>
+                      <button className="btn-primary">Update Username</button>
+                    </div>
+                  </section>
+                </div>
+              )}
+
+              {/* 2. Profile */}
+              {activeTab === 'profile' && (
+                <div className="profile-settings-editor">
+                  <section className="settings-section">
+                    <h3>Public Profile</h3>
+                    <div className="input-group">
+                      <label>Full Name</label>
+                      <input type="text" placeholder="Alex Okonkwo" className="settings-input" />
                     </div>
                     <div className="input-group">
-                      <label>New Username</label>
-                      <input type="text" placeholder="enter_new_username" className="settings-input" />
+                      <label>Bio</label>
+                      <textarea placeholder="Bio..." className="settings-input bio-area" />
                     </div>
-                    <button className="btn-primary">Update Username</button>
-                  </div>
-                </section>
+                  </section>
+                  <button className="save-btn">Save Profile</button>
                 </div>
-            )}
+              )}
 
-            {/* 2. Profile */}
-            {activeTab === 'profile' && (
-              <div className="profile-settings-editor">
-                <section className="settings-section">
-                  <h3>Public Profile</h3>
-                  <div className="input-group">
-                    <label>Full Name</label>
-                    <input type="text" placeholder="Alex Okonkwo" className="settings-input" />
-                  </div>
-                  <div className="input-group">
-                    <label>Bio</label>
-                    <textarea placeholder="Bio..." className="settings-input bio-area" />
-                  </div>
-                </section>
-                <button className="save-btn">Save Profile</button>
-              </div>
-            )}
-
-            {/* 3. Security */}
+              {/* 3. Security */}
             {activeTab === 'security' && (
               <div className="security-status-container">
                 <h3>Account Security Level</h3>
@@ -254,51 +255,60 @@ export default function Settings({ currentTheme, onThemeChange }) {
               </div>
             )}
 
-            {/* 5. THEMES (FIXED VERSION) */}
+              {/* 5. THEMES (FIXED VERSION) */}
+
             {activeTab === 'themes' && (
-              <div className="themes-content-area fade-in">
-                <p className="settings-subtitle">Choose how the dashboard looks for you.</p>
-                <div className="theme-options-grid">
-                  
-                  {/* Light Mode Card */}
-                  <div 
-                    className={`theme-card ${currentTheme === 'light' ? 'active' : ''}`}
-                    onClick={() => onThemeChange('light')}
-                  >
-                    <div className="theme-preview light">
-                      <div className="preview-nav"></div>
-                      <div className="p-line"></div>
-                      <div className="p-line mid"></div>
-                    </div>
-                    <div className="theme-info">
-                      <Sun size={18} />
-                      <span>Light Mode</span>
-                    </div>
-                  </div>
 
-                  {/* Dark Mode Card */}
-                  
-                  <div className={`theme-card ${currentTheme === 'dark' ? 'active' : ''}`} onClick={() => { 
-              console.log("Dark mode card clicked!"); onThemeChange('dark');
-              }}
->
-                    <div className="theme-preview dark">
-                      <div className="preview-nav"></div>
-                      <div className="p-line"></div>
-                      <div className="p-line mid"></div>
-                    </div>
-                    <div className="theme-info">
-                      <Moon size={18} />
-                      <span>Dark Mode</span>
-                    </div>
-                  </div>
+<div className="themes-content-area fade-in">
 
-                </div>
-              </div>
-            )}
-          </div>
-        </main>
+  <p className="settings-subtitle">Choose how the dashboard looks for you.</p>
+
+  <div className="theme-options-grid">
+
+   
+
+    {/* Light Mode Card */}
+
+    <div className={`theme-card ${currentTheme === 'light' ? 'active' : ''}`}
+      onClick={() => onThemeChange('light')} >
+
+      <div className="theme-preview light">
+        <div className="preview-nav"></div>
+        <div className="p-line"></div>
+        <div className="p-line mid"></div>
       </div>
-    </>
-  );
+
+      <div className="theme-info">
+        <Sun size={18} />
+        <span>Light Mode</span>
+      </div>
+    </div>
+
+
+
+    {/* Dark Mode Card */}
+    <div className={`theme-card ${currentTheme === 'dark' ? 'active' : ''}`} onClick={() => 
+      onThemeChange('dark')}>
+
+      <div className="theme-preview dark">
+        <div className="preview-nav"></div>
+        <div className="p-line"></div>
+        <div className="p-line mid"></div>
+      </div>
+
+      <div className="theme-info">
+        <Moon size={18} />
+        <span>Dark Mode</span>
+      </div>
+    </div> {/* Closes theme-card */}
+
+  </div> {/* Closes theme-options-grid */}
+</div> 
+)}
+</div> {/* Closes content-body */}
+</main>
+)}
+</div> {/* Closes settings-container */}
+</>
+);
 }
