@@ -11,7 +11,12 @@ import {
   MessageSquare, 
   Users, 
   EyeOff, 
-  BellRing 
+  BellRing, 
+  Tags,
+  BriefcaseMedical,
+  UsersIcon,
+
+
 } from 'lucide-react';
 
 const securityLevels = [
@@ -71,7 +76,7 @@ export default function Settings({ currentTheme, onThemeChange }) {
                     <button className="btn-primary">Update Username</button>
                   </div>
                 </section>
-              </div>
+                </div>
             )}
 
             {/* 2. Profile */}
@@ -104,48 +109,150 @@ export default function Settings({ currentTheme, onThemeChange }) {
                     </div>
                   ))}
                 </div>
+
+                <section className='settings sector'>
+                  <h3 className='dodo'>Login Credentials</h3>
+                  <div className='password info'>
+                    <p className='hint'>Last Changed: 3 months ago</p>
+                    <button className='btn-secondary'>Update Password</button>
+                  </div>
+                </section>
+
+                      {/* Two-Factor Authentication Section */}
+                    <section className='settings-section 2fa-config'>
+                      <div className='section-header'>
+                        <ShieldCheck size={20} color='#22c55e' />
+                        <h3>Two-Factor Authentication (2FA)</h3>
+                    </div>
+                    <p className='sub-label'>Add an extra layer of security to your account</p>
+                    <div className='setting-row'>
+                      <div className='label-stack'>
+                        <span>Authenticator App</span>
+                        <p className='sub-label'>Use app like Google Authenticator to generate codes</p>
+                      </div>
+                      <button className='btn-secondary'>Configure</button>
+                      </div>
+
+                      {/*Recovery Codes Area */}
+                      <div className='recovery-codes-box'>
+                      <div className='label-stack'>
+                        <span>Backup Recovery Codes</span>
+                        <p className='sub-label'>If you lose your phone, these codes will get you back in.</p>
+                        </div>
+                        <div className='codes-grid'>
+                          <code>8824-XT90</code>
+                          <code>4412-PQ22</code>
+                          <code>9001-BZ77</code>
+                          <code>3345-LL10</code>
+                          </div>
+                          <button className='btn-text'>Regenerate Codes</button>
+                          </div>
+                          </section>
+
+                  
+              {/* 4. Active Sessions */}
+                <section className="settings-section">
+                  <h3>Where you're logged in</h3>
+                  <div className="session-item">
+                    <div className="session-icon">💻</div>
+                    <div className="session-details">
+                      <strong>Windows · Chrome</strong>
+                      <span>Lagos, Nigeria · <span className="active-now">Active Now</span></span>
+                    </div>
+                  </div>
+                  <button className="text-btn-danger">Sign out of all other devices</button>
+                </section>
               </div>
             )}
 
-            {/* 4. Notifications */}
-            {activeTab === 'notifications' && (
-  <div className="notifications-flow fade-in">
-    {/* Socio Interaction */}
-    <div className="setting-row">
-      <div className="setting-left">
-        <MessageSquare size={20} color="#2563eb" />
-        <div className="label-stack">
-          <span>Direct Messages</span>
-          <p className="sub-label">Private messages from peers and mentors.</p>
-        </div>
-      </div>
-      <input type="checkbox" className="toggle-switch" defaultChecked />
-    </div>
+                        {/* 4. Notifications */}
+                        {activeTab === 'notifications' && (
+              <div className="notifications-flow fade-in">
+                {/* Socio Interaction */}
+                <div className="setting-row">
+                  <div className="setting-left">
+                    <MessageSquare size={20} color="#2563eb" />
+                    <div className="label-stack">
+                      <span>Direct Messages</span>
+                      <p className="sub-label"> Allow private messages from students and mentors.</p>
+                    </div>
+                  </div>
+                  <input type="checkbox" className="toggle-switch" defaultChecked />
+                </div>
 
-    {/* Educational Interaction */}
-    <div className="setting-row">
-      <div className="setting-left">
-        <Users size={20} color="#a855f7" />
-        <div className="label-stack">
-          <span>Study Group Alerts</span>
-          <p className="sub-label">Notifications for new resources in your groups.</p>
-        </div>
-      </div>
-      <input type="checkbox" className="toggle-switch" defaultChecked />
-    </div>
+                {/* Educational Interaction */}
+                <div className="setting-row">
+                  <div className="setting-left">
+                    <UsersIcon size={20} color="#b7a453" />
+                    <div className="label-stack">
+                      <span>Friend Requests</span>
+                      <p className="sub-label">Always notify on incoming friend requests.</p>
+                    </div>
+                  </div>
+                  <input type="checkbox" className="toggle-switch" defaultChecked />
+                </div>
 
-    <div className="setting-row">
-      <div className="setting-left">
-        <BellRing size={20} color="#eab308" />
-        <div className="label-stack">
-          <span>Deadline Reminders</span>
-          <p className="sub-label">Alerts for upcoming course tasks and assignments.</p>
-        </div>
-      </div>
-      <input type="checkbox" className="toggle-switch" defaultChecked />
-    </div>
-  </div>
-)}
+                
+                <div className="setting-row">
+                  <div className="setting-left">
+                    <Users size={20} color="#a855f7" />
+                    <div className="label-stack">
+                      <span>Group Chats</span>
+                      <p className="sub-label">Always notify on all incoming messages.</p>
+                    </div>
+                  </div>
+                  <input type="checkbox" className="toggle-switch" defaultChecked />
+                </div>
+
+                <div className="setting-row">
+                  <div className="setting-left">
+                    <MessageSquare size={20} color="#b2378f" />
+                    <div className="label-stack">
+                      <span>Projects</span>
+                      <p className="sub-label">Always notify me on New/incoming contents from groups or mentors.</p>
+                    </div>
+                  </div>
+                  <input type="checkbox" className="toggle-switch" defaultChecked />
+                </div>
+
+                  <div className='privacy'><p> Privacy Settings</p></div>
+                  
+                <div className="setting-row">
+                  <div className="setting-left">
+                    <Tags size={20} color="#a855f7" />
+                    <div className="label-stack">
+                      <span>Tags</span>
+                      <p className="sub-label">Only notify when someone @mention you in group chats or discussions.</p>
+                    </div>
+                  </div>
+                  <input type="checkbox" className="toggle-switch" defaultChecked />
+                </div>
+
+                <div className="setting-row">
+                  <div className="setting-left">
+                    <EyeOff size={20} color="#eab308" />
+                    <div className="label-stack">
+                      <span>Show Message Preview</span>
+                      <p className="sub-label">Hide message content in lockscreen alerts.</p>
+                    </div>
+                  </div>
+                  <input type="checkbox" className="toggle-switch" defaultChecked />
+                </div>
+
+                <div className="setting-row">
+                  <div className="setting-left">
+                    <BellRing size={20} color="#b40f56" />
+                    <div className="label-stack">
+                      <span>Media Content</span>
+                      <p className="sub-label">Allow to always send or recieve media content.</p>
+                    </div>
+                  </div>
+                  <input type="checkbox" className="toggle-switch" defaultChecked />
+                </div>
+
+
+              </div>
+            )}
 
             {/* 5. THEMES (FIXED VERSION) */}
             {activeTab === 'themes' && (

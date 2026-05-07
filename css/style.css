@@ -16,6 +16,9 @@
 
 :root {
   --blue: #2563eb;
+  --bg-body:#9a9c9e;
+  --bg-card:#ffffff;
+  --text-main: #1e293b;
   --blue-light: #dbeafe;
   --blue-dark: #1d4ed8;
   --green: #16a34a;
@@ -41,6 +44,9 @@
 
 [data-theme='dark'] {
   --bg-page: #0f172a;
+  --bg-body: #0f172a;
+  --bg-card: #1a293b;
+  --text-main: #f8fafc;
   --bg-card: #1e293b;
   --text-dark: #f8fafc;  /* This makes your main titles white */
   --text-mid: #cbd5e1;   /* This makes your menu text light grey */
@@ -54,12 +60,13 @@ html {
 }
 
 body {
-  background: var(--bg-page);
+  background-color: var(--bg-body);
   font-family: var(--font-body);
-  color: var(--text-dark);
+  color: var(--text-main);
   font-size: 15px;
   line-height: 1.6;
   min-height: 100vh;
+  transition: background-color 0.3s ease;
   
 }
 
@@ -346,8 +353,16 @@ a {
 
 .section-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.section-header h3 {
+  margin: 0;
+  text-align: left;
+  flex: none;
 }
 
 .section-title {
@@ -2800,6 +2815,7 @@ button:hover {
 .session-details {
   display: flex;
   flex-direction: column;
+  
 }
 
 .session-details span {
@@ -3434,4 +3450,64 @@ button:hover {
 [data-theme='dark'] .status-step.active .status-label {
   color: #ffffff !important;
   font-weight: bold;
+}
+
+/* Notification settings */
+.privacy{
+  padding: 25px;
+  padding-bottom: 2px;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.2rem;
+
+}
+
+.settings.sector h3{
+  font-size: 1.2rem;
+  padding-top: 30px;
+}
+[data-theme='dark'] .session-details{
+  color: #040505;
+}
+  
+/*--- 2FA & RECOVERY CODES STYLING ---*/
+.recovery-codes-box{
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+[data-theme='dark'] .recovery-codes-box{
+  background: rgba(255, 255, 255, 0.3);
+  border:solid rgba(255, 255, 255, 0.1);
+}
+
+.codes-grip{
+  display: grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.codes-grip code{
+  background: #f1f5f9;
+  padding: 8px;
+  text-align: center;
+  border-radius: 4px;
+  font-family:  monospace;
+  font-size: 0.9rem;
+  border: 1px solid #1e293b;
+  display: block;
+  word-break: break-all;
+  font-weight: bold;
+  color: #1e293b;
+}
+
+[data-theme='dark'] .codes-grip code{
+  background: #0f172a !important; /* Deep Navy backgrounds for cods*/
+  color: #3b82f6 !important; /*Bright blu text so they "glow" */
+  border: 1px solid #1e293b;
 }
