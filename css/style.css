@@ -397,6 +397,7 @@ a {
   background: var(--blue);
   color: #fff;
   padding: 8px 18px;
+  
   border-radius: var(--radius-sm);
   font-size: 13px;
   font-weight: 600;
@@ -519,7 +520,7 @@ a {
 }
 .tab.groups {
   padding: 7px 16px;
-  border-radius: 99px;
+  border-radius: 5px;
   font-size: 13px;
   font-weight: 600;
   border: 1.5px solid var(--border);
@@ -530,7 +531,7 @@ a {
 }
 .tab.project {
   padding: 7px 16px;
-  border-radius: 99px;
+  border-radius: 5px;
   font-size: 13px;
   font-weight: 600;
   border: 1.8px solid var(--border);
@@ -3510,4 +3511,9 @@ button:hover {
   background: #0f172a !important; /* Deep Navy backgrounds for cods*/
   color: #3b82f6 !important; /*Bright blu text so they "glow" */
   border: 1px solid #1e293b;
+}
+
+[data-theme='dark'] .btn-outline {
+  background: #0f172a !important; /* Deep Navy backgrounds for cods*/
+  color: #ffffff !important;
 }

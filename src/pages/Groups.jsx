@@ -20,30 +20,19 @@ export default function Groups() {
             <button className="btn-primary groups">+ Create Group</button>
           </div>
 
-          {/* 2. FIXED: Dynamic buttons with Green active state and click fix */}
-          <div className="filter-tabs" style={{ position: 'relative', zIndex: 10 }}>
-            {['My Groups', 'Discover', 'Invites'].map((tab) => (
+          <div className="filter-tabs">
+            
+            {['My groups', 'Discovered', 'Invite'].map((tab) => (
               <button 
                 key={tab}
                 className={`tab groups ${activeTab === tab ? 'active' : ''}`}
                 onClick={() => setActiveTab(tab)}
-                style={{
-                  cursor: 'pointer',
-                  padding: '10px 20px',
-                  marginRight: '10px',
-                  borderRadius: '5px',
-                  border: '1px solid #ddd',
-                  // GREEN COLOR FIX:
-                  backgroundColor: activeTab === tab ? '#2ecc71' : '#f9f9f9',
-                  color: activeTab === tab ? '#fff' : '#555',
-                  transition: '0.3s'
-                }}
               >
                 {tab}
               </button>
             ))}
-          </div>
-
+                  </div>
+                
           <section className="section">
             <div className="section-header">
               <h3 className="section-title">My Accountability Group</h3>

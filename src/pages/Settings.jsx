@@ -77,7 +77,17 @@ export default function Settings({ currentTheme, onThemeChange }) {
                       <button className="btn-primary">Update Username</button>
                     </div>
                   </section>
-                </div>
+                  <div className="account-settings-flow">
+                  <div className="settings-section">
+                    <h3>Email Address</h3></div>
+                    <div className="input-group">
+                        <input type="text" placeholder="example@email.com" className="settings-input" />
+                      </div>
+                      </div>
+                      <button className="btn-primary">Confirm</button>
+                      </div>
+                      
+                
               )}
 
               {/* 2. Profile */}

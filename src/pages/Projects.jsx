@@ -31,30 +31,19 @@ export default function Projects() {
   padding: '10px 0',
   clear: 'both' // This pushes it away from any floating elements above it
 }}>
-  {['Active', 'Drafts', 'Review'].map((tab) => (
-    <button 
-      key={tab}
-      className={`tab Projects ${activeTab === tab ? 'active' : ''}`}
-      onClick={() => {
-        console.log("CLICKED:", tab); // Watch your console (F12) for this!
-        setActiveTab(tab);
-      }}
-      style={{
-        cursor: 'pointer',
-        padding: '8px 16px',
-        backgroundColor: activeTab === tab ? '#ff7c00' : '#eee',
-        color: activeTab === tab ? '#fff' : '#333',
-        border: '1px solid #ccc',
-        borderRadius: '4px',
-        position: 'relative',
-        zIndex: 10000
-      }}
-    >
-      {tab}
-    </button>
-  ))}
-</div>
-
+   <div className="filter-tabs">
+            
+      {['Active', 'Draft', 'Reviews'].map((tab) => (
+        <button 
+          key={tab}
+          className={`tab project ${activeTab === tab ? 'active' : ''}`}
+          onClick={() => setActiveTab(tab)}
+        >
+          {tab}
+        </button>
+      ))}
+            </div>
+          </div>
           <div className="search-wrap">
             <span className="search-icon">🔎</span>
             <input type="text" className="search-input" placeholder="Search projects..." />
