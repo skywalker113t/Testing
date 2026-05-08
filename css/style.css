@@ -3517,3 +3517,18 @@ button:hover {
   background: #0f172a !important; /* Deep Navy backgrounds for cods*/
   color: #ffffff !important;
 }
+
+[data-theme='dark'] .current-user-info {
+  background: #0f172a !important; /* Deep Navy backgrounds for cods*/
+  color: #ffffff !important;
+}
+
+[data-theme='dark'] .settings-input {
+  background: #0f172a !important; /* Deep Navy backgrounds for cods*/
+  color: #ffffff !important;
+}
+
+[data-theme='dark'] .session-item {
+  background: #334155 !important; /* Deep Navy backgrounds for cods*/
+  color: #ffffff !important;
+}
