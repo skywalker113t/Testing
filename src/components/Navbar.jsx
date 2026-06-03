@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../images/E.png";
 import profileImage from "../../images/eeh.jpg";
-import settingsIcon from "../../images/download1.png";
+import settingsIcon from "../../images/download 1.png";
 import notificationIcon from "../../images/download 2.png";
 
 export default function Navbar({ currentTheme }) {
