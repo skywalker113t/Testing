@@ -3458,7 +3458,7 @@ button:hover {
 
 /* 1. Force the active menu item to use your Purple */
 [data-theme="dark"] .card.menu .menu-item.active {
-  background-color: #16b0d6 !important; /* Vibrant Purple */
+  background-color: #4e73da !important; /* Vibrant Purple */
   color: #ffffff !important;
   backdrop-filter: none !important; /* Keeps active state solid/readable */
   box-shadow: 0 4px 12px rgba(51, 154, 250, 0.3) !important; /* Subtle purple glow */
