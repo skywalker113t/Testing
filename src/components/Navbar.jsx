@@ -2,25 +2,36 @@ import { NavLink } from "react-router-dom";
 import logo from "../../images/E.png";
 import profileImage from "../../images/eeh.jpg";
 import settingsIcon from "../../images/download1.png";
-import { Download } from "lucide-react";
+import notificationIcon from "../../images/download.png";
 
-export default function Navbar() {
+export default function Navbar({ currentTheme }) {
   return (
-    <header className="navbar">
+    <header className={`navbar ${currentTheme || ""}`}>
       <NavLink to="/" className="logo-link">
         <img src={logo} alt="EduConnect" className="nav-icon" />
       </NavLink>
+
       <nav className="nav-links">
-        <NavLink to="/profile" className="logo-link">
-          <img src={profileImage} alt="profile" className="nav-icon" />
+        {/* 1. Notifications Link (First) */}
+        <NavLink to="/notifications" className="logo-link">
+          <img
+            src={notificationIcon}
+            alt="notifications"
+            className="nav-icon"
+          />
         </NavLink>
+
+        {/* 2. Settings Link (Middle) */}
         <NavLink to="/settings" className="logo-link">
           <img src={settingsIcon} alt="settings" className="nav-icon" />
         </NavLink>
-        <NavLink to="/notifications" className="logo-link">
-          <img src={download} alt="settings" className="nav-icon" />
+
+        {/* 3. Profile Link (Last) */}
+        <NavLink to="/profile" className="logo-link">
+          <img src={profileImage} alt="profile" className="nav-icon" />
         </NavLink>
       </nav>
+
       <button className="hamburger" aria-label="Toggle navigation">
         <span></span>
         <span></span>
