@@ -2522,11 +2522,12 @@ a {
 }
 
 .nav-icon {
-  width: 24px;
   height: 24px;
+  width: auto;
+  object-fit: contain;
+  padding: 2px; /* Gives the bell room to vibrate without hitting a wall */
   cursor: pointer;
   transition: 0.3s;
-  object-fit: contain;
 }
 .nav-icon.home {
   transform: scale(1.3);
