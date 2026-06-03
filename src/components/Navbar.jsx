@@ -1,7 +1,8 @@
-import { NavLink } from 'react-router-dom';
-import logo from '../../images/E.png';
-import profileImage from '../../images/eeh.jpg';
-import settingsIcon from '../../images/download1.png';
+import { NavLink } from "react-router-dom";
+import logo from "../../images/E.png";
+import profileImage from "../../images/eeh.jpg";
+import settingsIcon from "../../images/download1.png";
+import { Download } from "lucide-react";
 
 export default function Navbar() {
   return (
@@ -15,6 +16,9 @@ export default function Navbar() {
         </NavLink>
         <NavLink to="/settings" className="logo-link">
           <img src={settingsIcon} alt="settings" className="nav-icon" />
+        </NavLink>
+        <NavLink to="/notifications" className="logo-link">
+          <img src={download} alt="settings" className="nav-icon" />
         </NavLink>
       </nav>
       <button className="hamburger" aria-label="Toggle navigation">
