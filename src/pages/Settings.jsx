@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom"; // Added useNavigate for profile redirection
 import Navbar from "../components/Navbar.jsx";
+
 import {
   Circle,
   CheckCircle2,
@@ -7,13 +9,11 @@ import {
   Sun,
   Moon,
   ShieldCheck,
-  ChevronRight,
   MessageSquare,
   Users,
   EyeOff,
   BellRing,
   Tags,
-  BriefcaseMedical,
   UsersIcon,
 } from "lucide-react";
 
@@ -27,7 +27,51 @@ const securityLevels = [
 ];
 
 export default function Settings({ currentTheme, onThemeChange }) {
-  const [activeTab, setActiveTab] = useState(null); // Defaulting to themes so you can see the fix immediately
+  const location = useLocation();
+  const navigate = useNavigate(); // Initialize navigation function
+
+  // Initialize active tab from navigation state
+  const [activeTab, setActiveTab] = useState(
+    location.state?.activeSection || "account" // Defaulting to account if no state is passed
+  );
+
+  // Hook up state to handle form profile text changes smoothly
+  const [profileFormData, setProfileFormData] = useState(() => {
+    const saved = localStorage.getItem("educonnect_profile_text");
+    return saved
+      ? JSON.parse(saved)
+      : {
+          name: "Alex Okonkwo",
+          handle: "@alex.okonkwo · Lagos, Nigeria",
+          bio: "Aspiring data scientist passionate about using Python and machine learning to solve real-world problems.",
+        };
+  });
+
+  useEffect(() => {
+    if (location.state?.activeSection) {
+      setActiveTab(location.state.activeSection);
+    }
+  }, [location.state]);
+
+  const handleProfileInputChange = (field, value) => {
+    setProfileFormData((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
+
+  // Triggered when clicking "Save Profile"
+  const handleProfileSave = (e) => {
+    e.preventDefault();
+    // Commit to localStorage
+    localStorage.setItem(
+      "educonnect_profile_text",
+      JSON.stringify(profileFormData)
+    );
+    // Bounce back to profile to view the fresh layout updates instantly
+    navigate("/profile");
+  };
+
   const menuItems = [
     "Account",
     "Profile",
@@ -56,7 +100,7 @@ export default function Settings({ currentTheme, onThemeChange }) {
           ))}
         </aside>
 
-        {/* This <main> tag provides the background and border for the right side */}
+        {/* Right content box */}
         {activeTab && (
           <main className="content-box card">
             <div className="content-header">
@@ -103,29 +147,55 @@ export default function Settings({ currentTheme, onThemeChange }) {
                 </div>
               )}
 
-              {/* 2. Profile */}
+              {/* 2. Profile (FIXED & FULLY MAPPED) */}
               {activeTab === "profile" && (
-                <div className="profile-settings-editor">
+                <form
+                  onSubmit={handleProfileSave}
+                  className="profile-settings-editor"
+                >
                   <section className="settings-section">
                     <h3>Public Profile</h3>
                     <div className="input-group">
                       <label>Full Name</label>
                       <input
                         type="text"
+                        value={profileFormData.name}
+                        onChange={(e) =>
+                          handleProfileInputChange("name", e.target.value)
+                        }
                         placeholder="Alex Okonkwo"
+                        className="settings-input"
+                      />
+                    </div>
+                    <div className="input-group">
+                      <label>Handle & Location</label>
+                      <input
+                        type="text"
+                        value={profileFormData.handle}
+                        onChange={(e) =>
+                          handleProfileInputChange("handle", e.target.value)
+                        }
+                        placeholder="@alex.okonkwo · Lagos, Nigeria"
                         className="settings-input"
                       />
                     </div>
                     <div className="input-group">
                       <label>Bio</label>
                       <textarea
+                        value={profileFormData.bio}
+                        onChange={(e) =>
+                          handleProfileInputChange("bio", e.target.value)
+                        }
                         placeholder="Bio..."
                         className="settings-input bio-area"
+                        rows="4"
                       />
                     </div>
                   </section>
-                  <button className="save-btn">Save Profile</button>
-                </div>
+                  <button type="submit" className="save-btn">
+                    Save Profile
+                  </button>
+                </form>
               )}
 
               {/* 3. Security */}
@@ -186,10 +256,10 @@ export default function Settings({ currentTheme, onThemeChange }) {
                         </p>
                       </div>
                       <div className="codes-grid">
-                        <code>8824-XT90</code>
-                        <code>4412-PQ22</code>
-                        <code>9001-BZ77</code>
-                        <code>3345-LL10</code>
+                        <span>8824-XT90</span>
+                        <span>4412-PQ22</span>
+                        <span>9001-BZ77</span>
+                        <span>3345-LL10</span>
                       </div>
                       <button className="btn-text">Regenerate Codes</button>
                     </div>
@@ -218,14 +288,12 @@ export default function Settings({ currentTheme, onThemeChange }) {
               {/* 4. Notifications */}
               {activeTab === "notifications" && (
                 <div className="notifications-flow fade-in">
-                  {/* Socio Interaction */}
                   <div className="setting-row">
                     <div className="setting-left">
                       <MessageSquare size={20} color="#2563eb" />
                       <div className="label-stack">
                         <span>Direct Messages</span>
                         <p className="sub-label">
-                          {" "}
                           Allow private messages from students and mentors.
                         </p>
                       </div>
@@ -237,7 +305,6 @@ export default function Settings({ currentTheme, onThemeChange }) {
                     />
                   </div>
 
-                  {/* Educational Interaction */}
                   <div className="setting-row">
                     <div className="setting-left">
                       <UsersIcon size={20} color="#b7a453" />
@@ -335,7 +402,7 @@ export default function Settings({ currentTheme, onThemeChange }) {
                       <div className="label-stack">
                         <span>Media Content</span>
                         <p className="sub-label">
-                          Allow to always send or recieve media content.
+                          Allow to always send or receive media content.
                         </p>
                       </div>
                     </div>
@@ -348,15 +415,13 @@ export default function Settings({ currentTheme, onThemeChange }) {
                 </div>
               )}
 
-              {/* 5. THEMES (FIXED VERSION) */}
-
+              {/* 5. THEMES */}
               {activeTab === "themes" && (
                 <div className="themes-content-area fade-in">
                   <p className="settings-subtitle">
                     Choose how the dashboard looks for you.
                   </p>
                   <div className="theme-options-grid">
-                    {/* Light Mode Card */}
                     <div
                       className={`theme-card ${currentTheme === "light" ? "active" : ""}`}
                       onClick={() => onThemeChange("light")}
@@ -366,13 +431,12 @@ export default function Settings({ currentTheme, onThemeChange }) {
                         <div className="p-line"></div>
                         <div className="p-line mid"></div>
                       </div>
-
                       <div className="theme-info">
                         <Sun size={18} />
                         <span>Light Mode</span>
                       </div>
                     </div>
-                    {/* Dark Mode Card */}
+
                     <div
                       className={`theme-card ${currentTheme === "dark" ? "active" : ""}`}
                       onClick={() => onThemeChange("dark")}
@@ -382,23 +446,18 @@ export default function Settings({ currentTheme, onThemeChange }) {
                         <div className="p-line"></div>
                         <div className="p-line mid"></div>
                       </div>
-
                       <div className="theme-info">
                         <Moon size={18} />
                         <span>Dark Mode</span>
                       </div>
-                    </div>{" "}
-                    {/* Closes theme-card */}
-                  </div>{" "}
-                  {/* Closes theme-options-grid */}
+                    </div>
+                  </div>
                 </div>
               )}
-            </div>{" "}
-            {/* Closes content-body */}
+            </div>
           </main>
         )}
-      </div>{" "}
-      {/* Closes settings-container */}
+      </div>
     </>
   );
 }

@@ -33,7 +33,7 @@ function App() {
         path="/settings"
         element={<Settings currentTheme={theme} onThemeChange={setTheme} />}
       />
-      <Route path="/notifications" />
+      <Route path="/notifications" element={<Notifications />} />
       <Route path="/username" element={<Username />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
