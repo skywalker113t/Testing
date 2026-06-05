@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
 import { X } from "lucide-react";
 
-// Page-specific commentary pools matched exactly to your App.jsx routes
 const palQuotes = {
   "/": [
     "Welcome back to EduConnect! Ready to smash some goals today? 💪",
@@ -40,15 +38,17 @@ const palQuotes = {
   ],
 };
 
-export default function DashboardPal() {
-  const location = useLocation();
-
-  // 1. Load position from localStorage so it stays where you move it even on route change / refresh
+// FIXED: Destructures currentPath right here in the function arguments
+export default function DashboardPal({ currentPath = "/" }) {
   const [position, setPosition] = useState(() => {
-    const saved = localStorage.getItem("pal-position");
-    return saved
-      ? JSON.parse(saved)
-      : { x: window.innerWidth - 100, y: window.innerHeight - 150 };
+    try {
+      const saved = localStorage.getItem("pal-position");
+      return saved
+        ? JSON.parse(saved)
+        : { x: window.innerWidth - 100, y: window.innerHeight - 150 };
+    } catch (e) {
+      return { x: 200, y: 400 };
+    }
   });
 
   const [isDragging, setIsDragging] = useState(false);
@@ -58,9 +58,8 @@ export default function DashboardPal() {
   const dragRef = useRef(null);
   const offsetRef = useRef({ x: 0, y: 0 });
 
-  // Handle commentary when changing pages, without modifying position
+  // FIXED: Listens directly to the currentPath prop from App.jsx to change text
   useEffect(() => {
-    const currentPath = location.pathname;
     const quotes = palQuotes[currentPath] || palQuotes["default"];
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
@@ -69,12 +68,15 @@ export default function DashboardPal() {
 
     const timer = setTimeout(() => setShowBubble(false), 6000);
     return () => clearTimeout(timer);
-  }, [location]);
+  }, [currentPath]);
 
-  const handlePalClick = () => {
-    if (isDragging) return; // Don't speak if we just finished a drag motion
+  const handlePalClick = (e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    if (isDragging) return;
 
-    const currentPath = location.pathname;
     const quotes = palQuotes[currentPath] || palQuotes["default"];
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
@@ -105,13 +107,11 @@ export default function DashboardPal() {
 
       const newPos = { x: newX, y: newY };
       setPosition(newPos);
-
-      // 2. Save position continuously as it's dragged
       localStorage.setItem("pal-position", JSON.stringify(newPos));
     };
 
     const handleMouseUp = () => {
-      setTimeout(() => setIsDragging(false), 50);
+      setIsDragging(false);
     };
 
     if (isDragging) {
@@ -144,7 +144,9 @@ export default function DashboardPal() {
           <p style={{ margin: 0 }}>{speech}</p>
           <button
             className="close-bubble-btn"
+            style={{ cursor: "pointer" }}
             onClick={(e) => {
+              e.preventDefault();
               e.stopPropagation();
               setShowBubble(false);
             }}
