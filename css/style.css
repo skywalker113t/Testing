@@ -2522,13 +2522,21 @@ a {
 }
 
 .nav-icon {
+  width: 24px;
   height: 24px;
-  width: auto;
-  object-fit: contain;
-  padding: 2px; /* Gives the bell room to vibrate without hitting a wall */
   cursor: pointer;
   transition: 0.3s;
+  object-fit: contain;
 }
+.img .nav-icon.settings {
+  width: 24px;
+  height: 24px;
+  size: 4rem;
+  cursor: pointer;
+  transition: 0.3s;
+  object-fit: contain;
+}
+
 .nav-icon.home {
   transform: scale(1.3);
 }
@@ -2636,6 +2644,7 @@ form {
 /* INPUTS */
 input {
   width: 100%;
+  background-color: #c4c4c4;
   padding: 12px;
   border-radius: 8px;
   border: 2px solid #000000;
@@ -2722,6 +2731,7 @@ button:hover {
 }
 
 .split-view .menu {
+  height: 700px;
   width: 320px; /* The 'Shrink' width */
   flex-shrink: 0; /* Stops the menu from being squished */
 }
@@ -2753,9 +2763,9 @@ button:hover {
   margin-bottom: 8px;
   border-radius: 10px;
   cursor: pointer;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   box-sizing: border-box;
   transition: all 0.2s ease;
-  text-decoration: none;
   color: var(--text-mid);
 }
 
@@ -2874,6 +2884,7 @@ button:hover {
 /* profile Settings*/
 .bio-area {
   min-height: 120px;
+  background-color: #c1c1c1;
   resize: vertical;
 }
 

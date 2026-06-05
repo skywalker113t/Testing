@@ -23,7 +23,11 @@ export default function Navbar({ currentTheme }) {
 
         {/* 2. Settings Link (Middle) */}
         <NavLink to="/settings" className="logo-link">
-          <img src={settingsIcon} alt="settings" className="nav-icon" />
+          <img
+            src={settingsIcon}
+            alt="settings"
+            className="nav-icon settings"
+          />
         </NavLink>
 
         {/* 3. Profile Link (Last) */}
