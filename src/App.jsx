@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Page Imports
 import Dashboard from "./pages/Dashboard.jsx";
 import Learning from "./pages/Learning.jsx";
 import Projects from "./pages/Projects.jsx";
@@ -11,8 +13,11 @@ import Settings from "./pages/Settings.jsx";
 import Username from "./pages/Username.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
-function App() {
-  // We use localStorage so it stays dark even if you refresh!
+// Component Imports
+import DashboardPal from "./components/DashboardPal.jsx";
+
+export default function App() {
+  // Theme state persisted in localStorage
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   useEffect(() => {
@@ -21,23 +26,29 @@ function App() {
   }, [theme]);
 
   return (
-    <Routes>
-      <Route path="/" element={<Dashboard />} />
-      <Route path="/learning" element={<Learning />} />
-      <Route path="/project" element={<Projects />} />
-      <Route path="/groups" element={<Groups />} />
-      <Route path="/achievements" element={<Achievements />} />
-      <Route path="/profile" element={<Profile />} />
+    <Router>
+      {/* The Pal sits here globally so it can track page navigation via useLocation() */}
+      <DashboardPal />
 
-      <Route
-        path="/settings"
-        element={<Settings currentTheme={theme} onThemeChange={setTheme} />}
-      />
-      <Route path="/notifications" element={<Notifications />} />
-      <Route path="/username" element={<Username />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/learning" element={<Learning />} />
+        <Route path="/project" element={<Projects />} />
+        <Route path="/groups" element={<Groups />} />
+        <Route path="/achievements" element={<Achievements />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/notifications" element={<Notifications />} />
+        <Route path="/username" element={<Username />} />
+
+        {/* Pass down theme props to your Settings page */}
+        <Route
+          path="/settings"
+          element={<Settings currentTheme={theme} onThemeChange={setTheme} />}
+        />
+
+        {/* Fallback 404 route */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
   );
 }
-
-export default App;
