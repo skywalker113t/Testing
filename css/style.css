@@ -69,6 +69,13 @@ body {
   transition: background-color 0.3s ease;
 }
 
+body,
+.container {
+  background-color: #f1f5f9; /* Soft slate gray */
+  min-height: 100vh;
+  transition: background-color 0.3s ease; /* Makes theme switching smooth! */
+}
+
 a {
   text-decoration: none;
   color: inherit;
